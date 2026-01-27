@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>我的第一篇博客 - 博士日常</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="技术">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="images/head/head.png" type="image/png" />
+<meta name="description" content="这是我在这个平台上的第一篇文章 前两天看到 涛叔大佬的博客,才感到以前在wordpress玩的费劲。于是决定寻找一种能够在本地写作，推送发布的方案。经过询问Gemini，给出了**Hugo + Vercel 部署方案： 第一步：本地创建 Hugo 项目 如果你本地还没有 Hugo 环境，建议先安装 Hugo 扩展版（Extended version，支持处理 Sass&#x2F;SCSS）。 1234567">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的第一篇博客">
+<meta property="og:url" content="http://bosh.zz.ac/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="博士日常">
+<meta property="og:description" content="这是我在这个平台上的第一篇文章 前两天看到 涛叔大佬的博客,才感到以前在wordpress玩的费劲。于是决定寻找一种能够在本地写作，推送发布的方案。经过询问Gemini，给出了**Hugo + Vercel 部署方案： 第一步：本地创建 Hugo 项目 如果你本地还没有 Hugo 环境，建议先安装 Hugo 扩展版（Extended version，支持处理 Sass&#x2F;SCSS）。 1234567">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-27T06:03:18.000Z">
+<meta property="article:modified_time" content="2026-01-27T12:19:22.801Z">
+<meta property="article:author" content="BOSh">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1769516382726">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+
+<link rel="stylesheet" href="/css/style.css?v=1769516382726">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1769516382726">
+    
+        <link rel="stylesheet" href="/themes/umaru/index.css?v=1769516382726">
+    
+        <link rel="stylesheet" href="/themes/asuka/index.css?v=1769516382726">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1769516382726"></script>
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z7TFL96ZH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Z7TFL96ZH');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 8.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/images/git.jpg)"></div><div class="nexmoe-character"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="BOSh"><img src="/images/avatar.jpg" alt="BOSh"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="BOSh">
+            <img src="/images/avatar.jpg" alt="BOSh" alt="BOSh">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>73 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>24<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>5<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archives/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博士">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于博士
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/links/" title="我的网站">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的网站
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/photos/" title="我的相册">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的相册
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="http://wpa.qq.com/msgrd?v=3&uin=526174637&site=qq&menu=yes"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(64, 196, 255);
+				background-color: rgba(64, 196, 255, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="mailto:zhisibi@gmail.com"
+			target="_blank"
+			mdui-tooltip="{content: 'mail'}"
+			style="
+				color: rgb(249,8,8);
+				background-color: rgba(249,8,8,.1);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://bosh.zz.ac/"
+			target="_blank"
+			mdui-tooltip="{content: '博客园'}"
+			style="
+				color: rgb(66, 214, 29);
+				background-color: rgba(66, 214, 29, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bokeyuan"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/zhisibi/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习笔记/">学习笔记</a>
+          <span class="category-list-count">46</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活分享/">生活分享</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网络资料/">网络资料</a>
+          <span class="category-list-count">22</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/美好生活/">美好生活</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/默认分类/">默认分类</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 17.78px;">Hexo</a> <a href="/tags/IPV6/" style="font-size: 10px;">IPV6</a> <a href="/tags/LINUX/" style="font-size: 10px;">LINUX</a> <a href="/tags/Markdow/" style="font-size: 10px;">Markdow</a> <a href="/tags/NAT64/" style="font-size: 10px;">NAT64</a> <a href="/tags/NIX/" style="font-size: 10px;">NIX</a> <a href="/tags/NODE/" style="font-size: 10px;">NODE</a> <a href="/tags/arch/" style="font-size: 13.33px;">arch</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/hugo/" style="font-size: 10px;">hugo</a> <a href="/tags/node-js/" style="font-size: 10px;">node js</a> <a href="/tags/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tags/pacman/" style="font-size: 10px;">pacman</a> <a href="/tags/podman/" style="font-size: 14.44px;">podman</a> <a href="/tags/zz-ac/" style="font-size: 15.56px;">zz.ac</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 16.67px;">分享</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" style="font-size: 10px;">博客部署成功</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 15.56px;">生活</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18.89px;">网络</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 12.22px;">记录</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(24);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        <!-- 一言 -->
+<div class="nexmoe-widget-wrap">
+  <h3 class="nexmoe-widget-title">
+    一言
+  </h3>
+  <div class="nexmoe-widget">
+    <ul class="hitokoto-box">
+      <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+        <a href="#" id="hitokoto_text">
+          
+        </a>
+        <a href="#" id="hitokoto_error_text" style="display: none;">
+          
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let hitokotoText = document.getElementById('hitokoto_text')
+  let hitokotoErroText = document.getElementById('hitokoto_error_text')
+  let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+  window.addEventListener('load', function () {
+    let url = 'https://v1.hitokoto.cn'
+    if (hitokotoCategory) {
+      url += '?c=' + hitokotoCategory
+    }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+        hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      })
+      .catch((reason) => {
+        console.error(11, reason)
+        hitokotoText.style.display = 'none'
+        hitokotoErroText.style.display = 'block'
+      })
+  })
+</script>
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">44</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/3170278382.html">arch挂载NTFS文件系统</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2574627224.html">nat64--解决ipv6vps访问ipv4网络问题</a>
+          </li>
+        
+          <li>
+            <a href="/posts/1653291291.html">arch使用代理软件</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2422458312.html">ARCH休眠到硬盘设置</a>
+          </li>
+        
+          <li>
+            <a href="/posts/123069775.html">arch备份和恢复系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+            <li>
+                <a href="https://bosh.zz.ac/" target="_blank" >
+                    <img src="https://bed.886423.xyz/file/1766048281277_bingimg_20251204_UHD_1_.jpg" alt="博士日常"></img>
+                    <p style="color: var(--color-primary)">博士日常</p>
+                </a>
+            </li>
+        
+		</ul>
+    </div>
+</div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
+    
+   
+    <div class="nexmoe-copyright">
+        &copy; 2026 BOSh
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">辽ICP备2021002341号</a>
+<div style="font-size: 12px">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+   本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+   本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover">
+            <img src="/images/git.jpg" alt="我的第一篇博客" loading="lazy">
+            <h1>我的第一篇博客</h1>
+        </div>
+        
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2025年12月27日</a>
+        
+        
+    <a><i class="nexmoefont icon-areachart"></i>约796字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要3分钟</a>
+
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1>这是我在这个平台上的第一篇文章</h1>
+<p>前两天看到 <a target="_blank" rel="noopener" href="https://tao.zz.ac/">涛叔大佬</a>的博客,才感到以前在wordpress玩的费劲。于是决定寻找一种能够在本地写作，推送发布的方案。经过询问Gemini，给出了**Hugo + Vercel 部署方案：</p>
+<h3 id="第一步：本地创建-Hugo-项目">第一步：本地创建 Hugo 项目</h3>
+<p>如果你本地还没有 Hugo 环境，建议先安装 <a target="_blank" rel="noopener" href="https://gohugo.io/installation/">Hugo 扩展版</a>（Extended version，支持处理 Sass/SCSS）。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 创建新站点</span></span><br><span class="line">hugo new site my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 初始化 Git</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 添加一个主题 (以极简好用的 PaperMod 为例)</span></span><br><span class="line">git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 在 hugo.toml (或 config.toml) 中激活主题</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'theme = "PaperMod"'</span> &gt;&gt; hugo.toml</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第二步：写下第一篇文章">第二步：写下第一篇文章</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new posts/hello-world.md</span><br></pre></td></tr></tbody></table></figure>
+<p>打开该文件，把 <code>draft: true</code> 改为 <code>draft: false</code>，否则部署后看不到文章。</p>
+<h3 id="第三步：关键配置（解决-Vercel-兼容性）">第三步：关键配置（解决 Vercel 兼容性）</h3>
+<p>为了避免 Vercel 使用过旧的 Hugo 版本导致构建失败，在项目根目录新建一个 <code>vercel.json</code> 文件：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"build"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"env"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"HUGO_VERSION"</span><span class="punctuation">:</span> <span class="string">"0.140.0"</span> </span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><strong>提示：</strong> <code>0.140.0</code> 是 2024 年末比较稳定的版本，你可以根据 Hugo 官网最新版本进行调整。</p>
+</blockquote>
+<h3 id="第四步：推送到-GitHub">第四步：推送到 GitHub</h3>
+<p>在 GitHub 上新建一个仓库，然后执行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/你的用户名/你的仓库名.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="第五步：在-Vercel-中部署">第五步：在 Vercel 中部署</h3>
+<ol>
+<li>
+<p>登录 <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a>，点击 <strong>Add New -&gt; Project</strong>。</p>
+</li>
+<li>
+<p>导入刚才创建的 GitHub 仓库。</p>
+</li>
+<li>
+<p><strong>重要设置：</strong> Vercel 会自动识别出是 Hugo 项目，请确保 <strong>Framework Preset</strong> 显示为 <strong>Hugo</strong>。</p>
+</li>
+<li>
+<p>点击 <strong>Deploy</strong>。</p>
+</li>
+</ol>
+<hr>
+<h6 id="当部署完成后，只需要在本地项目文件中运行：">当部署完成后，只需要在本地项目文件中运行：</h6>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new /posts/我的博客.md</span><br></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="http://xn--markdown-hu2mu23ak2bx0m92s0hvi35c1gnlofj28bba2945fca.md">然后使用markdown编辑器编辑我的博客.md</a> 编辑完成后，在本地运行：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server -D</span><br></pre></td></tr></tbody></table></figure>
+<p>在<a target="_blank" rel="noopener" href="http://localhost:1313/%E9%A2%84%E8%A7%88%E6%97%A0%E8%AF%AF%E5%90%8E%E3%80%82%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%A4%B4%E9%83%A8">http://localhost:1313/预览无误后。修改文章头部</a>  draft = false</p>
+<p>推送到github仓库即可：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"我的第一次发布"</span></span><br><span class="line"></span><br><span class="line">git push origin main</span><br></pre></td></tr></tbody></table></figure>
+<p>推送后，vercel端会进行自动编译部署。访问vercel上的域名就可以访问啦！</p>
+<h2 id="修改后直接push-发布若有有问题。解决方法：">修改后直接push 发布若有有问题。解决方法：</h2>
+<h3 id="1-先把远程的代码“拉”下来合并">1. 先把远程的代码“拉”下来合并</h3>
+<p>在你的终端执行：</p>
+<p>Bash</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --rebase</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><strong><code>--rebase</code> 的作用：</strong> 它会把你本地还没提交上去的修改“暂存”起来，先把远程的文件拉下来，再把你本地的修改接在后面。这样提交历史会非常干净。</li>
+</ul>
+<h3 id="2-再次推送">2. 再次推送</h3>
+<p>如果上面的命令执行成功了，直接执行：</p>
+<p>Bash</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="💡-如果执行-git-pull-报错：refusing-to-merge-unrelated-histories">💡 如果执行 <code>git pull</code> 报错：<code>refusing to merge unrelated histories</code></h3>
+<p>如果你本地的项目和 GitHub 上的项目是完全独立创建的，可能会报这个错。这时需要执行这个“强制合并”命令：</p>
+<p>Bash</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --allow-unrelated-histories</span><br></pre></td></tr></tbody></table></figure>
+<p>执行完后，可能会弹出一个黑色的命令行编辑器（Vim）让你输入合并说明：</p>
+<ol>
+<li>
+<p>按键盘上的 <strong><code>i</code></strong> 键进入输入模式。</p>
+</li>
+<li>
+<p>输入一行字，比如 <code>merge</code>。</p>
+</li>
+<li>
+<p>按 <strong><code>Esc</code></strong> 键，然后输入 <strong><code>:wq</code></strong> 并回车。</p>
+</li>
+</ol>
+<p>完成后，再次执行 <code>git push origin main</code> 即可成功。</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>BOSh<br>
+        
+        <strong>本文链接：</strong><a href="http://bosh.zz.ac/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html" title="http:&#x2F;&#x2F;bosh.zz.ac&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2&#x2F;index.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;bosh.zz.ac&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2&#x2F;index.html</a><br>
+
+        
+            <strong>版权声明：</strong>本文由BoSh发布，部分内容来源于网络。
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1769516382416"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <div class="valine"></div>
+<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
+<script>
+  new Valine({
+      el: '.valine',
+      appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
+      appKey: '3bqCsovpyfTPHUzTHovd3V3V'
+  })
+</script>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">这是我在这个平台上的第一篇文章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA-Hugo-%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">第一步：本地创建 Hugo 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%86%99%E4%B8%8B%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="toc-number">1.2.</span> <span class="toc-text">第二步：写下第一篇文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE%EF%BC%88%E8%A7%A3%E5%86%B3-Vercel-%E5%85%BC%E5%AE%B9%E6%80%A7%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">第三步：关键配置（解决 Vercel 兼容性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E6%8E%A8%E9%80%81%E5%88%B0-GitHub"><span class="toc-number">1.4.</span> <span class="toc-text">第四步：推送到 GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%9C%A8-Vercel-%E4%B8%AD%E9%83%A8%E7%BD%B2"><span class="toc-number">1.5.</span> <span class="toc-text">第五步：在 Vercel 中部署</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BD%93%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%8C%E5%8F%AA%E9%9C%80%E8%A6%81%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BF%90%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">当部署完成后，只需要在本地项目文件中运行：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9B%B4%E6%8E%A5push-%E5%8F%91%E5%B8%83%E8%8B%A5%E6%9C%89%E6%9C%89%E9%97%AE%E9%A2%98%E3%80%82%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.6.</span> <span class="toc-text">修改后直接push 发布若有有问题。解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E6%8A%8A%E8%BF%9C%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E2%80%9C%E6%8B%89%E2%80%9D%E4%B8%8B%E6%9D%A5%E5%90%88%E5%B9%B6"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 先把远程的代码“拉”下来合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%8D%E6%AC%A1%E6%8E%A8%E9%80%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. 再次推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-%E5%A6%82%E6%9E%9C%E6%89%A7%E8%A1%8C-git-pull-%E6%8A%A5%E9%94%99%EF%BC%9Arefusing-to-merge-unrelated-histories"><span class="toc-number">1.6.3.</span> <span class="toc-text">💡 如果执行 git pull 报错：refusing to merge unrelated histories</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-pendant"><div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+    
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<script>
+        // ----- Variable declaration
+
+        var data = {
+                dt: new Date(),
+                hours: {
+                        el: document.querySelector('#hours'),
+                        val: 0 },
+
+                minutes: {
+                        el: document.querySelector('#minutes'),
+                        val: 0 },
+
+                seconds: {
+                        el: document.querySelector('#seconds'),
+                        val: 0 },
+
+                renderTime: 1000 };
+
+
+        // ----- Clock rendering logic
+
+        updateTime = () => {
+                let hour = data.dt.getHours();
+                let minute = data.dt.getMinutes();
+                let second = data.dt.getSeconds();
+
+                data.hours.el.classList.add('moving');
+                data.minutes.el.classList.add('moving');
+                data.seconds.el.classList.add('moving');
+
+                data.hours.val = hour == 0 && data.hours.val == 59 * 6 * 5 ? 360 : hour * 6 * 5;
+                data.minutes.val = minute == 0 && data.minutes.val == 59 * 6 ? 360 : minute * 6;
+                data.seconds.val = second == 0 && data.seconds.val == 59 * 6 ? 360 : second * 6;
+
+                data.hours.el.style.transform = `translate(-50%, -75%) rotate(${data.hours.val}deg)`;
+                data.minutes.el.style.transform = `translate(-50%, -75%) rotate(${data.minutes.val}deg)`;
+                data.seconds.el.style.transform = `translate(-50%, -75%) rotate(${data.seconds.val}deg)`;
+
+                data.dt.setSeconds(second + 1);
+        };
+
+        // ----- Clock execution
+
+        setInterval(() => {
+                updateTime();
+        }, data.renderTime);
+
+        updateTime();
+
+        // ----- Events area
+
+        data.seconds.el.addEventListener('transitionend', () => {
+                data.hours.el.classList.remove('moving');
+                data.minutes.el.classList.remove('moving');
+                data.seconds.el.classList.remove('moving');
+
+                // if (data.hours.val == 360) {
+                //   data.hours.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                // }
+
+                if (data.minutes.val == 360) {
+                        data.minutes.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+
+                if (data.seconds.val == 360) {
+                        data.seconds.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+        });
+
+</script>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw var(--color-primary);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw var(--color2);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .clock_logo{
+            width: 10vw;
+            height: 10vw;
+            max-width: 10vh;
+            max-height: 10vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-image: var(--clock-logo);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh var(--color-primary);
+            box-shadow: 0 1.4vh 2.8vh var(--color2);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard">
+        <iframe allowtransparency="true" frameborder="0" width="304" height="96" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=0&v=0&d=2&bd=0&k=000000&f=ff8040&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=300&h=96&align=center"></iframe>
+    </div>
+    <div class="qweather-logo">
+
+    </div>
+</div>
+<style>
+    .qweather{
+        position: relative;
+        padding-right: 5px;
+    }
+    .qweather #he-plugin-standard {
+        border: 2px solid var(--color-primary);
+        box-shadow: 0 1px 0 0 var(--color-primary), 0 1px 2px 0 var(--color-primary);
+        border-radius: 8px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-image: var(--qweather-logo);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+            </div>
+        
+    
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    #nexmoe-pendant .mdui-drawer{
+        width: 305px;
+    }
+    @media screen and (max-width: 1600px) {
+        #nexmoe-pendant {
+            display: none
+        }
+    }
+</style>
+</div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>

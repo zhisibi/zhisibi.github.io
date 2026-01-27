@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>arch备份和恢复系统 - 博士日常</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="技术">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="images/head/head.png" type="image/png" />
+<meta name="description" content="默认的开源显卡驱动性能问题 昨天在在使用arch的时候出现了加载网页卡死和自动切换壁纸渲染系统主题卡死的问题，卡死后只好强制重启，但是在使用chrome的过程中总会触发卡死，严重影响使用体验，我想这是显卡驱动的问题。经过查询，虽然我这个机子的amd显卡较差，但是这个显卡还是能在Linux中较好的驱动。为了解决卡死的问题，我切换显卡驱动到AMD驱动。 升级驱动前的系统备份 升级驱动存在较大的隐患。在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arch备份和恢复系统">
+<meta property="og:url" content="http://bosh.zz.ac/posts/123069775.html">
+<meta property="og:site_name" content="博士日常">
+<meta property="og:description" content="默认的开源显卡驱动性能问题 昨天在在使用arch的时候出现了加载网页卡死和自动切换壁纸渲染系统主题卡死的问题，卡死后只好强制重启，但是在使用chrome的过程中总会触发卡死，严重影响使用体验，我想这是显卡驱动的问题。经过查询，虽然我这个机子的amd显卡较差，但是这个显卡还是能在Linux中较好的驱动。为了解决卡死的问题，我切换显卡驱动到AMD驱动。 升级驱动前的系统备份 升级驱动存在较大的隐患。在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bed.886423.xyz/file/1768791815310_image.png">
+<meta property="og:image" content="https://bed.886423.xyz/file/1768791625474_image.png">
+<meta property="og:image" content="https://bed.886423.xyz/file/1768791555548_image.png">
+<meta property="og:image" content="https://bed.886423.xyz/file/1768791562442_image.png">
+<meta property="article:published_time" content="2026-01-18T18:29:21.000Z">
+<meta property="article:modified_time" content="2026-01-27T12:19:22.791Z">
+<meta property="article:author" content="BOSh">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bed.886423.xyz/file/1768791815310_image.png">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1769516382755">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+
+<link rel="stylesheet" href="/css/style.css?v=1769516382755">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1769516382755">
+    
+        <link rel="stylesheet" href="/themes/umaru/index.css?v=1769516382755">
+    
+        <link rel="stylesheet" href="/themes/asuka/index.css?v=1769516382755">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1769516382755"></script>
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z7TFL96ZH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Z7TFL96ZH');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 8.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/images/git.jpg)"></div><div class="nexmoe-character"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="BOSh"><img src="/images/avatar.jpg" alt="BOSh"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="BOSh">
+            <img src="/images/avatar.jpg" alt="BOSh" alt="BOSh">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>73 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>24<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>5<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archives/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博士">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于博士
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/links/" title="我的网站">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的网站
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/photos/" title="我的相册">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的相册
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="http://wpa.qq.com/msgrd?v=3&uin=526174637&site=qq&menu=yes"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(64, 196, 255);
+				background-color: rgba(64, 196, 255, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="mailto:zhisibi@gmail.com"
+			target="_blank"
+			mdui-tooltip="{content: 'mail'}"
+			style="
+				color: rgb(249,8,8);
+				background-color: rgba(249,8,8,.1);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://bosh.zz.ac/"
+			target="_blank"
+			mdui-tooltip="{content: '博客园'}"
+			style="
+				color: rgb(66, 214, 29);
+				background-color: rgba(66, 214, 29, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bokeyuan"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/zhisibi/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习笔记/">学习笔记</a>
+          <span class="category-list-count">46</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活分享/">生活分享</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网络资料/">网络资料</a>
+          <span class="category-list-count">22</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/美好生活/">美好生活</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/默认分类/">默认分类</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 17.78px;">Hexo</a> <a href="/tags/IPV6/" style="font-size: 10px;">IPV6</a> <a href="/tags/LINUX/" style="font-size: 10px;">LINUX</a> <a href="/tags/Markdow/" style="font-size: 10px;">Markdow</a> <a href="/tags/NAT64/" style="font-size: 10px;">NAT64</a> <a href="/tags/NIX/" style="font-size: 10px;">NIX</a> <a href="/tags/NODE/" style="font-size: 10px;">NODE</a> <a href="/tags/arch/" style="font-size: 13.33px;">arch</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/hugo/" style="font-size: 10px;">hugo</a> <a href="/tags/node-js/" style="font-size: 10px;">node js</a> <a href="/tags/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tags/pacman/" style="font-size: 10px;">pacman</a> <a href="/tags/podman/" style="font-size: 14.44px;">podman</a> <a href="/tags/zz-ac/" style="font-size: 15.56px;">zz.ac</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 16.67px;">分享</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" style="font-size: 10px;">博客部署成功</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 15.56px;">生活</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18.89px;">网络</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 12.22px;">记录</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(24);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        <!-- 一言 -->
+<div class="nexmoe-widget-wrap">
+  <h3 class="nexmoe-widget-title">
+    一言
+  </h3>
+  <div class="nexmoe-widget">
+    <ul class="hitokoto-box">
+      <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+        <a href="#" id="hitokoto_text">
+          
+        </a>
+        <a href="#" id="hitokoto_error_text" style="display: none;">
+          
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let hitokotoText = document.getElementById('hitokoto_text')
+  let hitokotoErroText = document.getElementById('hitokoto_error_text')
+  let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+  window.addEventListener('load', function () {
+    let url = 'https://v1.hitokoto.cn'
+    if (hitokotoCategory) {
+      url += '?c=' + hitokotoCategory
+    }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+        hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      })
+      .catch((reason) => {
+        console.error(11, reason)
+        hitokotoText.style.display = 'none'
+        hitokotoErroText.style.display = 'block'
+      })
+  })
+</script>
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">44</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/3170278382.html">arch挂载NTFS文件系统</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2574627224.html">nat64--解决ipv6vps访问ipv4网络问题</a>
+          </li>
+        
+          <li>
+            <a href="/posts/1653291291.html">arch使用代理软件</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2422458312.html">ARCH休眠到硬盘设置</a>
+          </li>
+        
+          <li>
+            <a href="/posts/123069775.html">arch备份和恢复系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+            <li>
+                <a href="https://bosh.zz.ac/" target="_blank" >
+                    <img src="https://bed.886423.xyz/file/1766048281277_bingimg_20251204_UHD_1_.jpg" alt="博士日常"></img>
+                    <p style="color: var(--color-primary)">博士日常</p>
+                </a>
+            </li>
+        
+		</ul>
+    </div>
+</div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
+    
+   
+    <div class="nexmoe-copyright">
+        &copy; 2026 BOSh
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">辽ICP备2021002341号</a>
+<div style="font-size: 12px">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+   本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+   本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="http://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202407/5139f1a74ee855b6b3ea790e9f80f214--1489631495.jpg" alt="arch备份和恢复系统" loading="lazy">
+            <h1>arch备份和恢复系统</h1>
+        </div>
+        
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2026年01月19日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+        
+        
+    <a><i class="nexmoefont icon-areachart"></i>约1.3k字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要4分钟</a>
+
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h2 id="默认的开源显卡驱动性能问题">默认的开源显卡驱动性能问题</h2>
+<h3 id="昨天在在使用arch的时候出现了加载网页卡死和自动切换壁纸渲染系统主题卡死的问题，卡死后只好强制重启，但是在使用chrome的过程中总会触发卡死，严重影响使用体验，我想这是显卡驱动的问题。经过查询，虽然我这个机子的amd显卡较差，但是这个显卡还是能在Linux中较好的驱动。为了解决卡死的问题，我切换显卡驱动到AMD驱动。">昨天在在使用arch的时候出现了加载网页卡死和自动切换壁纸渲染系统主题卡死的问题，卡死后只好强制重启，但是在使用chrome的过程中总会触发卡死，严重影响使用体验，我想这是显卡驱动的问题。经过查询，虽然我这个机子的amd显卡较差，但是这个显卡还是能在Linux中较好的驱动。为了解决卡死的问题，我切换显卡驱动到AMD驱动。</h3>
+<h2 id="升级驱动前的系统备份">升级驱动前的系统备份</h2>
+<h3 id="升级驱动存在较大的隐患。在升级前我做了系统备份。我使用的是btrfs的文件系统，使用snapper做备份方案。snapper这个工具超级好用，比之前在mintlinux上用的timeshift好用多了。">升级驱动存在较大的隐患。在升级前我做了系统备份。我使用的是btrfs的文件系统，使用snapper做备份方案。snapper这个工具超级好用，比之前在mintlinux上用的timeshift好用多了。</h3>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://bed.886423.xyz/file/1768791815310_image.png" alt="image.png" data-caption="image.png" loading="lazy"></p>
+<h3 id="snapper">snapper</h3>
+<p>opensuse开发的快照软件，超级好用。</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S snapper snap-pac btrfs-assistant grub-btrfs inotify-tools</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>snapper 是主程序；<br>
+snap-pac 利用钩子在进行pacman命令的时候自动创建快照；<br>
+btrfs-assistant 是GUI（图形化交互界面），同时提供了几个简单的命令，进一步简化快照回档需要的操作。我们还没有安装桌面环境，但是肯定会用到，先装上。<br>
+grub-btrfs inotify-tools 在创建快照的时候自动在grub菜单里添加快照启动项<br>
+重启电脑用新的initramfs进入系统</p>
+</blockquote>
+<ul>
+<li>reboot<br>
+激活快照启动项服务</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable --now grub-btrfsd</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>创建快照配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">snapper -c root create-config /</span><br></pre></td></tr></tbody></table></figure>
+<p>-c root指定要使用的配置，由于该配置不存在，所以create-config创建，快照范围是/。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c home create-config /home</span><br></pre></td></tr></tbody></table></figure>
+<p>同样的方式，创建home的配置。</p>
+<ul>
+<li>创建快照</li>
+</ul>
+<p>分别创建home和root的快照。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">snapper -c root create --description "before desktop"</span><br><span class="line">snapper -c home create --description "before desktop"</span><br></pre></td></tr></tbody></table></figure>
+<p>create创建快照，–description添加自定义描述。我们这里是安装桌面之前，所以描述为before desktop。</p>
+<p>为了方便快照回档，我们接着来配置从grub菜单进入快照的功能。</p>
+<ul>
+<li>生成grub菜单入口</li>
+</ul>
+<p>要至少运行一次grub-mkconfig生成grub菜单的snapshot入口</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></tbody></table></figure>
+<p>现在就配置好快照啦</p>
+<h3 id="回档方法">回档方法</h3>
+<ul>
+<li>snapper命令行</li>
+</ul>
+<p>列出可用快照</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snapper -c root list</span><br></pre></td></tr></tbody></table></figure>
+<p>找到自己想使用的快照的数字序号</p>
+<ul>
+<li>undochange回档</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo snapper -c root undochange 1..0</span><br></pre></td></tr></tbody></table></figure>
+<p>这里的1…0，1是要使用的快照的序号，0代表当前状态。</p>
+<p>这条命令会对比两者的区别，对当前状态进行修改，无须重启，重新登录即可生效。</p>
+<p>⚠️注意：官方文档不建议用undochange回档root。</p>
+<ul>
+<li>btrfs-assistant命令行（记得使用root身份登录）</li>
+</ul>
+<p>切换至root</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su -</span><br></pre></td></tr></tbody></table></figure>
+<p>列出可用快照</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btrfs-assistant -l</span><br></pre></td></tr></tbody></table></figure>
+<p>找到目标快照的数字序号。</p>
+<p>回档</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btrfs-assistant -r 1</span><br></pre></td></tr></tbody></table></figure>
+<p>这里的数字1是要使用的快照的数字序号。</p>
+<ul>
+<li>btrfs-assistant图形界面</li>
+</ul>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://bed.886423.xyz/file/1768791625474_image.png" alt="image.png" data-caption="image.png" loading="lazy"></p>
+<p>创建配置</p>
+<p>打开btrfs assistant，切换到snapper settings页面。我们创建子卷的时候至少创建了一个@子卷和一个@home子卷，所以需要两个config（配置）。</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://bed.886423.xyz/file/1768791555548_image.png" alt="image.png" data-caption="image.png" loading="lazy"></p>
+<p>root 根目录快照<br>
+点击new config新建配置，config name写root，backup path选择 / ，然后点击save保存。</p>
+<p>接着进行一些按照时间自动生成快照的设置。systemd unit settings里面有三个服务。 timeline是按照时间计划自动创建快照；cleanup是快照数量达到number设定的数量上限之后自动清理快照；boot是每次开机自动创建快照。按需设置，设置完记得点apply。</p>
+<p>home目录快照<br>
+按照同样的方法创建一个home目录的配置。</p>
+<p>创建快照</p>
+<p>到snapper页面，select config选择配置，要创建root子卷的快照就选择刚刚创建的名为root的配置。点击new创建快照，description是快照的自定义文字描述（注释）。</p>
+<p>使用快照进行恢复</p>
+<p>snapper页面–&gt; Browse/restore页面</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://bed.886423.xyz/file/1768791562442_image.png" alt="image.png" data-caption="image.png" loading="lazy"></p>
+<p>select target选择想恢复的子卷，再选择想使用的快照，点击restore，此时会自动帮你创建一个额外的子卷用来备份当前的数据然后弹出一个确认窗口让你填写这个子卷的名字（可以空着不填写）</p>
+<p>使用快照进行全盘恢复</p>
+<blockquote>
+<p>因为root子卷和home子卷在创建的时候是平级的，所以虽然root目录包含了home目录，但是创建root子卷的快照时不会包含home子卷里的内容。这样的子卷布局叫作“扁平布局”。因此，需要分别创建root和home的快照，然后分别恢复root子卷和home子卷。</p>
+</blockquote>
+<h3 id="从grub菜单的快照启动项进入系统">从grub菜单的快照启动项进入系统</h3>
+<p>无法正常进入系统时使用该方法。用btrfs-assistant回档，GUI或者命令行都可以。记得用root身份登录。</p>
+<p>如果无法从快照启动项进入系统</p>
+<p>设置覆盖文件系统（overlayfs）</p>
+<p>设置一个overlayfs在内存中创建一个临时可写的类似live-cd的环境，否则可能无法正常从快照启动项进入系统。</p>
+<p>编辑/etc/mkinitcpio.conf</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mkinitcpio.conf</span><br></pre></td></tr></tbody></table></figure>
+<p>在HOOKS里添加grub-btrfs-overlayfs</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOOKS= ( ...... grub-btrfs-overlayfs )</span><br></pre></td></tr></tbody></table></figure>
+<p>重新生成initramfs</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkinitcpio -P</span><br></pre></td></tr></tbody></table></figure>
+<p>重启电脑</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>BOSh<br>
+        
+        <strong>本文链接：</strong><a href="http://bosh.zz.ac/posts/123069775.html" title="http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;123069775.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;123069775.html</a><br>
+
+        
+            <strong>版权声明：</strong>本文由BoSh发布，部分内容来源于网络。
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Hexo/" rel="tag">Hexo</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1769516382421"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <div class="valine"></div>
+<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
+<script>
+  new Valine({
+      el: '.valine',
+      appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
+      appKey: '3bqCsovpyfTPHUzTHovd3V3V'
+  })
+</script>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BC%80%E6%BA%90%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">默认的开源显卡驱动性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A8%E5%A4%A9%E5%9C%A8%E5%9C%A8%E4%BD%BF%E7%94%A8arch%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0%E4%BA%86%E5%8A%A0%E8%BD%BD%E7%BD%91%E9%A1%B5%E5%8D%A1%E6%AD%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E5%A3%81%E7%BA%B8%E6%B8%B2%E6%9F%93%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98%E5%8D%A1%E6%AD%BB%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8D%A1%E6%AD%BB%E5%90%8E%E5%8F%AA%E5%A5%BD%E5%BC%BA%E5%88%B6%E9%87%8D%E5%90%AF%EF%BC%8C%E4%BD%86%E6%98%AF%E5%9C%A8%E4%BD%BF%E7%94%A8chrome%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%80%BB%E4%BC%9A%E8%A7%A6%E5%8F%91%E5%8D%A1%E6%AD%BB%EF%BC%8C%E4%B8%A5%E9%87%8D%E5%BD%B1%E5%93%8D%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%8C%E6%88%91%E6%83%B3%E8%BF%99%E6%98%AF%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82%E7%BB%8F%E8%BF%87%E6%9F%A5%E8%AF%A2%EF%BC%8C%E8%99%BD%E7%84%B6%E6%88%91%E8%BF%99%E4%B8%AA%E6%9C%BA%E5%AD%90%E7%9A%84amd%E6%98%BE%E5%8D%A1%E8%BE%83%E5%B7%AE%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%99%E4%B8%AA%E6%98%BE%E5%8D%A1%E8%BF%98%E6%98%AF%E8%83%BD%E5%9C%A8Linux%E4%B8%AD%E8%BE%83%E5%A5%BD%E7%9A%84%E9%A9%B1%E5%8A%A8%E3%80%82%E4%B8%BA%E4%BA%86%E8%A7%A3%E5%86%B3%E5%8D%A1%E6%AD%BB%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E6%88%91%E5%88%87%E6%8D%A2%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%88%B0AMD%E9%A9%B1%E5%8A%A8%E3%80%82"><span class="toc-number">1.1.</span> <span class="toc-text">昨天在在使用arch的时候出现了加载网页卡死和自动切换壁纸渲染系统主题卡死的问题，卡死后只好强制重启，但是在使用chrome的过程中总会触发卡死，严重影响使用体验，我想这是显卡驱动的问题。经过查询，虽然我这个机子的amd显卡较差，但是这个显卡还是能在Linux中较好的驱动。为了解决卡死的问题，我切换显卡驱动到AMD驱动。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E9%A9%B1%E5%8A%A8%E5%89%8D%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD"><span class="toc-number">2.</span> <span class="toc-text">升级驱动前的系统备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E9%A9%B1%E5%8A%A8%E5%AD%98%E5%9C%A8%E8%BE%83%E5%A4%A7%E7%9A%84%E9%9A%90%E6%82%A3%E3%80%82%E5%9C%A8%E5%8D%87%E7%BA%A7%E5%89%8D%E6%88%91%E5%81%9A%E4%BA%86%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E3%80%82%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFbtrfs%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BD%BF%E7%94%A8snapper%E5%81%9A%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88%E3%80%82snapper%E8%BF%99%E4%B8%AA%E5%B7%A5%E5%85%B7%E8%B6%85%E7%BA%A7%E5%A5%BD%E7%94%A8%EF%BC%8C%E6%AF%94%E4%B9%8B%E5%89%8D%E5%9C%A8mintlinux%E4%B8%8A%E7%94%A8%E7%9A%84timeshift%E5%A5%BD%E7%94%A8%E5%A4%9A%E4%BA%86%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">升级驱动存在较大的隐患。在升级前我做了系统备份。我使用的是btrfs的文件系统，使用snapper做备份方案。snapper这个工具超级好用，比之前在mintlinux上用的timeshift好用多了。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#snapper"><span class="toc-number">2.2.</span> <span class="toc-text">snapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E6%A1%A3%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">回档方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8Egrub%E8%8F%9C%E5%8D%95%E7%9A%84%E5%BF%AB%E7%85%A7%E5%90%AF%E5%8A%A8%E9%A1%B9%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.4.</span> <span class="toc-text">从grub菜单的快照启动项进入系统</span></a></li></ol></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-pendant"><div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+    
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<script>
+        // ----- Variable declaration
+
+        var data = {
+                dt: new Date(),
+                hours: {
+                        el: document.querySelector('#hours'),
+                        val: 0 },
+
+                minutes: {
+                        el: document.querySelector('#minutes'),
+                        val: 0 },
+
+                seconds: {
+                        el: document.querySelector('#seconds'),
+                        val: 0 },
+
+                renderTime: 1000 };
+
+
+        // ----- Clock rendering logic
+
+        updateTime = () => {
+                let hour = data.dt.getHours();
+                let minute = data.dt.getMinutes();
+                let second = data.dt.getSeconds();
+
+                data.hours.el.classList.add('moving');
+                data.minutes.el.classList.add('moving');
+                data.seconds.el.classList.add('moving');
+
+                data.hours.val = hour == 0 && data.hours.val == 59 * 6 * 5 ? 360 : hour * 6 * 5;
+                data.minutes.val = minute == 0 && data.minutes.val == 59 * 6 ? 360 : minute * 6;
+                data.seconds.val = second == 0 && data.seconds.val == 59 * 6 ? 360 : second * 6;
+
+                data.hours.el.style.transform = `translate(-50%, -75%) rotate(${data.hours.val}deg)`;
+                data.minutes.el.style.transform = `translate(-50%, -75%) rotate(${data.minutes.val}deg)`;
+                data.seconds.el.style.transform = `translate(-50%, -75%) rotate(${data.seconds.val}deg)`;
+
+                data.dt.setSeconds(second + 1);
+        };
+
+        // ----- Clock execution
+
+        setInterval(() => {
+                updateTime();
+        }, data.renderTime);
+
+        updateTime();
+
+        // ----- Events area
+
+        data.seconds.el.addEventListener('transitionend', () => {
+                data.hours.el.classList.remove('moving');
+                data.minutes.el.classList.remove('moving');
+                data.seconds.el.classList.remove('moving');
+
+                // if (data.hours.val == 360) {
+                //   data.hours.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                // }
+
+                if (data.minutes.val == 360) {
+                        data.minutes.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+
+                if (data.seconds.val == 360) {
+                        data.seconds.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+        });
+
+</script>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw var(--color-primary);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw var(--color2);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .clock_logo{
+            width: 10vw;
+            height: 10vw;
+            max-width: 10vh;
+            max-height: 10vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-image: var(--clock-logo);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh var(--color-primary);
+            box-shadow: 0 1.4vh 2.8vh var(--color2);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard">
+        <iframe allowtransparency="true" frameborder="0" width="304" height="96" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=0&v=0&d=2&bd=0&k=000000&f=ff8040&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=300&h=96&align=center"></iframe>
+    </div>
+    <div class="qweather-logo">
+
+    </div>
+</div>
+<style>
+    .qweather{
+        position: relative;
+        padding-right: 5px;
+    }
+    .qweather #he-plugin-standard {
+        border: 2px solid var(--color-primary);
+        box-shadow: 0 1px 0 0 var(--color-primary), 0 1px 2px 0 var(--color-primary);
+        border-radius: 8px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-image: var(--qweather-logo);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+            </div>
+        
+    
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    #nexmoe-pendant .mdui-drawer{
+        width: 305px;
+    }
+    @media screen and (max-width: 1600px) {
+        #nexmoe-pendant {
+            display: none
+        }
+    }
+</style>
+</div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>

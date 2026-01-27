@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>「zz.ac」公益主机代理地址浅究 - 博士日常</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="技术">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="images/head/head.png" type="image/png" />
+<meta name="description" content="涛叔在ZZ.NIC 公益 Linux 主机空间这篇文章中说：  注意它已经设置了 fe80::2&#x2F;64 本地链接地址。登录之后无法直接访问外部网络环境。但你用 curl 访问 github.com 就会发现是通的。这是因为系统会自动设置 HTTP 代理环境变量：   123$ export|grep httpdeclare -x http_proxy&#x3D;&quot;http:&#x2F;&#x2F;[fe80::1%eth0]:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「zz.ac」公益主机代理地址浅究">
+<meta property="og:url" content="http://bosh.zz.ac/posts/1925092226.html">
+<meta property="og:site_name" content="博士日常">
+<meta property="og:description" content="涛叔在ZZ.NIC 公益 Linux 主机空间这篇文章中说：  注意它已经设置了 fe80::2&#x2F;64 本地链接地址。登录之后无法直接访问外部网络环境。但你用 curl 访问 github.com 就会发现是通的。这是因为系统会自动设置 HTTP 代理环境变量：   123$ export|grep httpdeclare -x http_proxy&#x3D;&quot;http:&#x2F;&#x2F;[fe80::1%eth0]:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="article:published_time" content="2026-01-09T04:05:03.000Z">
+<meta property="article:modified_time" content="2026-01-27T12:19:22.792Z">
+<meta property="article:author" content="BOSh">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1769516382809">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+
+<link rel="stylesheet" href="/css/style.css?v=1769516382809">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1769516382809">
+    
+        <link rel="stylesheet" href="/themes/umaru/index.css?v=1769516382809">
+    
+        <link rel="stylesheet" href="/themes/asuka/index.css?v=1769516382809">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1769516382809"></script>
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z7TFL96ZH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Z7TFL96ZH');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 8.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/images/git.jpg)"></div><div class="nexmoe-character"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="BOSh"><img src="/images/avatar.jpg" alt="BOSh"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="BOSh">
+            <img src="/images/avatar.jpg" alt="BOSh" alt="BOSh">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>73 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>24<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>5<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archives/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博士">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于博士
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/links/" title="我的网站">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的网站
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/photos/" title="我的相册">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的相册
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="http://wpa.qq.com/msgrd?v=3&uin=526174637&site=qq&menu=yes"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(64, 196, 255);
+				background-color: rgba(64, 196, 255, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="mailto:zhisibi@gmail.com"
+			target="_blank"
+			mdui-tooltip="{content: 'mail'}"
+			style="
+				color: rgb(249,8,8);
+				background-color: rgba(249,8,8,.1);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://bosh.zz.ac/"
+			target="_blank"
+			mdui-tooltip="{content: '博客园'}"
+			style="
+				color: rgb(66, 214, 29);
+				background-color: rgba(66, 214, 29, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bokeyuan"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/zhisibi/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习笔记/">学习笔记</a>
+          <span class="category-list-count">46</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活分享/">生活分享</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网络资料/">网络资料</a>
+          <span class="category-list-count">22</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/美好生活/">美好生活</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/默认分类/">默认分类</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 17.78px;">Hexo</a> <a href="/tags/IPV6/" style="font-size: 10px;">IPV6</a> <a href="/tags/LINUX/" style="font-size: 10px;">LINUX</a> <a href="/tags/Markdow/" style="font-size: 10px;">Markdow</a> <a href="/tags/NAT64/" style="font-size: 10px;">NAT64</a> <a href="/tags/NIX/" style="font-size: 10px;">NIX</a> <a href="/tags/NODE/" style="font-size: 10px;">NODE</a> <a href="/tags/arch/" style="font-size: 13.33px;">arch</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/hugo/" style="font-size: 10px;">hugo</a> <a href="/tags/node-js/" style="font-size: 10px;">node js</a> <a href="/tags/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tags/pacman/" style="font-size: 10px;">pacman</a> <a href="/tags/podman/" style="font-size: 14.44px;">podman</a> <a href="/tags/zz-ac/" style="font-size: 15.56px;">zz.ac</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 16.67px;">分享</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" style="font-size: 10px;">博客部署成功</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 15.56px;">生活</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18.89px;">网络</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 12.22px;">记录</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(24);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        <!-- 一言 -->
+<div class="nexmoe-widget-wrap">
+  <h3 class="nexmoe-widget-title">
+    一言
+  </h3>
+  <div class="nexmoe-widget">
+    <ul class="hitokoto-box">
+      <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+        <a href="#" id="hitokoto_text">
+          
+        </a>
+        <a href="#" id="hitokoto_error_text" style="display: none;">
+          
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let hitokotoText = document.getElementById('hitokoto_text')
+  let hitokotoErroText = document.getElementById('hitokoto_error_text')
+  let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+  window.addEventListener('load', function () {
+    let url = 'https://v1.hitokoto.cn'
+    if (hitokotoCategory) {
+      url += '?c=' + hitokotoCategory
+    }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+        hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      })
+      .catch((reason) => {
+        console.error(11, reason)
+        hitokotoText.style.display = 'none'
+        hitokotoErroText.style.display = 'block'
+      })
+  })
+</script>
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">44</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/3170278382.html">arch挂载NTFS文件系统</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2574627224.html">nat64--解决ipv6vps访问ipv4网络问题</a>
+          </li>
+        
+          <li>
+            <a href="/posts/1653291291.html">arch使用代理软件</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2422458312.html">ARCH休眠到硬盘设置</a>
+          </li>
+        
+          <li>
+            <a href="/posts/123069775.html">arch备份和恢复系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+            <li>
+                <a href="https://bosh.zz.ac/" target="_blank" >
+                    <img src="https://bed.886423.xyz/file/1766048281277_bingimg_20251204_UHD_1_.jpg" alt="博士日常"></img>
+                    <p style="color: var(--color-primary)">博士日常</p>
+                </a>
+            </li>
+        
+		</ul>
+    </div>
+</div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
+    
+   
+    <div class="nexmoe-copyright">
+        &copy; 2026 BOSh
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">辽ICP备2021002341号</a>
+<div style="font-size: 12px">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+   本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+   本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="http://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202509/7efc16187cdcd8739d001f7d905b784d--3423496032.jpg" alt="「zz.ac」公益主机代理地址浅究" loading="lazy">
+            <h1>「zz.ac」公益主机代理地址浅究</h1>
+        </div>
+        
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2026年01月09日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+        
+        
+    <a><i class="nexmoefont icon-areachart"></i>约2k字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要7分钟</a>
+
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <p>涛叔在<a target="_blank" rel="noopener" href="https://tao.zz.ac/zz/free-host.html">ZZ.NIC 公益 Linux 主机空间</a>这篇文章中说：</p>
+<blockquote>
+<p>注意它已经设置了 fe80::2/64 本地链接地址。登录之后无法直接访问外部网络环境。但你用 curl 访问 <a target="_blank" rel="noopener" href="http://github.com">github.com</a> 就会发现是通的。这是因为系统会自动设置 HTTP 代理环境变量：</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ export|grep http</span><br><span class="line">declare -x http_proxy="http://[fe80::1%eth0]:8888"</span><br><span class="line">declare -x https_proxy="http://[fe80::1%eth0]:8888"</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="这个代理究竟是什么意思呢？今天通过Gemini探究一下：">这个代理究竟是什么意思呢？今天通过Gemini探究一下：</h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">declare -x http_proxy="http://[fe80::1%eth0]:8888"</span><br><span class="line">declare -x https_proxy="http://[fe80::1%eth0]:8888"</span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>语法拆解：declare -x</li>
+</ol>
+<ul>
+<li>
+<p>在 Bash 中，declare 是一个用于声明变量及其属性的内置命令: declare: 告知 Shell 我要定义一个变量。</p>
+</li>
+<li>
+<p>-x: 代表 export（导出）。它的作用是将该变量变成“环境变量”。</p>
+</li>
+</ul>
+<blockquote>
+<p>区别：如果只写 http_proxy=“…”，这个变量只在当前终端窗口有效；使用 -x 后，从这个终端启动的所有程序（如 curl、wget、git、apt 等）都能读取到这个变量。</p>
+</blockquote>
+<ol start="2">
+<li>地址拆解：IPv6 链路本地地址:</li>
+</ol>
+<ul>
+<li>
+<p>这是这条命令中最复杂的部分：http://[fe80::1%eth0]:8888</p>
+</li>
+<li>
+<p>http://: 即使是代理 IPv6 流量，代理服务器本身运行的协议通常仍然是 HTTP。</p>
+</li>
+<li>
+<p>fe80::1: 这是一个 IPv6 Link-Local Address（链路本地地址）。这类地址仅在当前的物理网段内有效(可以理解为局域网?)。</p>
+</li>
+<li>
+<p>fe80::1 通常是网关（如路由器或宿主机）在 IPv6 环境下的简写形式。</p>
+<blockquote>
+<p>完整（非压缩）形式为：<code>fe80:0000:0000:0000:0000:0000:0000:0001 </code></p>
+</blockquote>
+</li>
+<li>
+<p>%eth0: 这是 Zone Index（区域索引/范围标识）。</p>
+<blockquote>
+<p>关键点：由于所有的网卡（eth0, eth1, wlan0）都可能拥有以 fe80 开头的地址，系统无法仅凭地址知道该往哪个网卡发包。</p>
+</blockquote>
+</li>
+<li>
+<p>%eth0 明确告诉系统：通过名为 eth0 的网卡去寻找这个代理服务器。</p>
+<blockquote>
+<p>在 IPv6 的语法中，这个 % 符号被称为 Zone Index（区域索引） 或 Scope ID（作用域标识符） 的分隔符。<br>
+在网络中，fe80::/10 开头的地址是链路本地地址（Link-Local Address）。这种地址在每个网络接口（网卡）上都会自动生成一个，且只在当前物理网段内有效。<br>
+由于一个操作系统可能插了多张网卡（如 eth0 是有线，wlan0 是无线），每张网卡对应的物理网段里可能都有一个 fe80::1：</p>
+</blockquote>
+<blockquote>
+<p>如果不加 %，电脑不知道应该从哪张网卡把数据包发出去。<br>
+加上 %eth0，就是明确告诉电脑：“请通过 eth0 这张网卡，去找那个叫 fe80::1 的目标”。</p>
+</blockquote>
+</li>
+<li>
+<p><code>[ ]</code>: 在 URL 中，如果使用 IPv6 地址，必须用方括号包围，以区分地址中的冒号和端口号的冒号。</p>
+</li>
+<li>
+<p>:8888: 代理服务器监听的端口号。</p>
+</li>
+</ul>
+<ol start="3">
+<li>变量名拆解：</li>
+</ol>
+<ul>
+<li>http_proxy 与 https_proxy这两个是 Linux 系统中约定俗成的环境变量名：</li>
+<li>http_proxy拦截所有不加密的 HTTP 请求，并转发给代理服务器。</li>
+<li>https_proxy拦截所有加密的 HTTPS 请求（通常通过 HTTP CONNECT 隧道）。</li>
+</ul>
+<h2 id="我的公益主机上的代理：">我的公益主机上的代理：</h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export |grep http</span><br><span class="line">declare -x http_proxy="http://[fe80::1%25eth0]:8888"</span><br><span class="line">declare -x https_proxy="http://[fe80::1%25eth0]:8888"</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="而涛叔的文章中是：">而涛叔的文章中是：</h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">declare -x http_proxy="http://[fe80::1%eth0]:8888"</span><br><span class="line">declare -x https_proxy="http://[fe80::1%eth0]:8888"</span><br></pre></td></tr></tbody></table></figure>
+<h1>显而易见：</h1>
+<blockquote>
+<p>区别在于我的代理的<code>%25eth0</code>和默认的<code>%eth0</code>的区别：我网卡名前多了<code>25</code></p>
+</blockquote>
+<p>这个区别是我为了运行<code>node js</code>项目的时候，Gemini让我修改的。 有个困惑：为啥需要改成这样呢？区别在那里呢？</p>
+<blockquote>
+<h3 id="关于这里的25-这涉及到了-URL-编码（URL-Encoding）-的底层机制：">关于这里的25,这涉及到了 URL 编码（URL Encoding） 的底层机制：</h3>
+<p>简单的说：%25 其实就是百分号 % 本身经过“翻译”后的样子</p>
+</blockquote>
+<ol>
+<li>
+<p>为什么会有 %25？</p>
+<ul>
+<li>在计算机网络标准中，% 符号是一个特殊保留字符。它在 URL（统一资源定位符）中被用作“转义字符”的前缀。例如：空格会被编码为 <code>%20</code>,斜杠 <code>/</code> 会被编码为 <code>%2F</code></li>
+<li>当直接写 <code>%eth0</code> 时，某些底层解析器（比如 npm 使用的 Node.js 网络库或某些版本的 curl）会尝试去寻找 <code>%</code> 后面跟随的两个十六进制数字。因为它发现后面跟着的是 <code>et</code>而不是数字，解析器就会报错，或者无法正确识别这个地址，导致代理失效。</li>
+<li>为了在 URL 中表示一个“纯粹的百分号”，你必须对百分号本身进行编码。在 ASCII 码表中，百分号<code> %</code> 的十六进制值是 <code>25</code>。</li>
+</ul>
+</li>
+<li>
+<p>两组代理的区别特性：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>第一组 (<code>%eth0</code>)</th>
+<th>第二组 (<code>%25eth0</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形式</td>
+<td>原始/未编码形式</td>
+<td>URL 编码形式</td>
+</tr>
+<tr>
+<td>解析行为</td>
+<td>Shell 脚本或简单的系统工具能识别，但高级编程语言（Node.js, Go）往往会报错。</td>
+<td>符合标准规范。所有的现代网络库都能正确识别。</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>不稳定，取决于具体软件对 URL 的解析严谨程度。</td>
+<td>非常稳定，是跨平台、跨工具的标准写法。</td>
+</tr>
+<tr>
+<td>npm 表现</td>
+<td>失败。Node.js 的 URL 解析器会认为这是一个非法的 URL 格式。</td>
+<td>成功。Node.js 将 %25 还原为 %，从而正确找到网卡。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<blockquote>
+<p>实测：在这个系统curl 进行下载正常，使用wget 下载却报错：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bosh@h1:~$ wget www.google.com</span><br><span class="line">Error parsing proxy URL http://[fe80::1%25eth0]:8888: Invalid IPv6 numeric address.</span><br><span class="line">bosh@h1:~$ crule www.google.com</span><br><span class="line">-bash: crule: command not found</span><br><span class="line">bosh@h1:~$ curl www.google.com</span><br><span class="line">&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="en"&gt;&lt;head&gt;&lt;meta content="Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for." name="description"&gt;&lt;meta content="noodp, " name="robots"&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="qOaPXbwdBh-h</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<blockquote>
+<p>这是为何那么呢？</p>
+<ul>
+<li>Linux 中两个最常用的下载工具 curl 和 wget 在代码实现严谨程度上的差异。</li>
+<li>核心原因：wget 的一个已知“顽疾”</li>
+<li>wget 的报错信息：Error parsing proxy URL … Invalid IPv6 numeric address 已经给出了答案。</li>
+<li>原因：wget 的 URL 解析器（Parser）写得比较陈旧。它无法正确处理 IPv6 地址中的 Scope ID（作用域标识符，即 %eth0 部分）。</li>
+<li>现象：</li>
+<li>即使使用了 %25 转义，wget 依然会尝试去验证这个 IP 地址是否符合它心目中的“标准 IPv6 格式”。</li>
+<li>在 wget 的逻辑里，它可能只认 [fe80::1] 这种纯地址。一旦看到里面夹杂了 % 这种符号，它的解析逻辑就会“崩溃”，认为这是一个无效的数字地址。</li>
+<li>为什么 curl 可以？</li>
+<li>curl 被称为网络界的“瑞士军刀”，它的背后是强大的 libcurl 库。</li>
+<li>更现代的解析器：curl 完美支持 RFC 4007（定义 IPv6 作用域地址的标准）。它不仅能识别 % 符号，还知道如何在建立连接时提取 % 后的网卡名称，并调用底层系统函数（如 getaddrinfo）去绑定正确的网卡。</li>
+<li>对转义的宽容度：当你使用 %25 时，curl 的解析器会先执行一层 URL 解码，将其还原为 %，然后再正常处理。</li>
+</ul>
+</blockquote>
+<hr>
+<ol start="3">
+<li>为什么 npm 需要这个？<br>
+npm 是基于 Node.js 运行的。Node.js 在处理网络请求时，对环境变量中的 URL 格式要求非常严格。</li>
+</ol>
+<ul>
+<li>
+<p>当 Node.js 读取到 http://[fe80::1%eth0]:8888 时，它会尝试解析这个字符串。</p>
+</li>
+<li>
+<p>由于 % 后面不是有效的十六进制数，解析器会抛出一个内部错误，或者直接忽略这个代理配置，导致 npm install 尝试直接连接网络，进而因为连不上墙外的服务器而超时。</p>
+</li>
+</ul>
+<p>而使用 %25eth0 时，Node.js 会执行以下逻辑：</p>
+<ul>
+<li>
+<p>检测到 %25。</p>
+</li>
+<li>
+<p>将其解码（Decode）为 %。</p>
+</li>
+<li>
+<p>得到最终地址 fe80::1%eth0。</p>
+</li>
+<li>
+<p>交给操作系统，操作系统通过 eth0 网卡连接到 fe80::1。</p>
+</li>
+</ul>
+<h1>总结：</h1>
+<blockquote>
+<p>这个坑其实是 “标准之争”。虽然在终端手动 ping 的时候可以直接用 %eth0，但在程序代码、配置文件和 URL 中，永远建议使用 %25 来代替 %，以确保最大的兼容性。</p>
+</blockquote>
+<hr>
+<h1><span class="github-emoji" style="0:display: inline !important; vertical-align: middle; height: 1.1em;"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  <span class="github-emoji" style="0:display: inline !important; vertical-align: middle; height: 1.1em;"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="0:display: inline !important; vertical-align: middle; height: 1.1em;"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  <span class="github-emoji" style="0:display: inline !important; vertical-align: middle; height: 1.1em;"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="0:display: inline !important; vertical-align: middle; height: 1.1em;"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>BOSh<br>
+        
+        <strong>本文链接：</strong><a href="http://bosh.zz.ac/posts/1925092226.html" title="http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;1925092226.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;1925092226.html</a><br>
+
+        
+            <strong>版权声明：</strong>本文由BoSh发布，部分内容来源于网络。
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Hexo/" rel="tag">Hexo</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1769516382434"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <div class="valine"></div>
+<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
+<script>
+  new Valine({
+      el: '.valine',
+      appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
+      appKey: '3bqCsovpyfTPHUzTHovd3V3V'
+  })
+</script>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E4%BB%A3%E7%90%86%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%E5%91%A2%EF%BC%9F%E4%BB%8A%E5%A4%A9%E9%80%9A%E8%BF%87Gemini%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">这个代理究竟是什么意思呢？今天通过Gemini探究一下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%85%AC%E7%9B%8A%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">我的公益主机上的代理：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%8C%E6%B6%9B%E5%8F%94%E7%9A%84%E6%96%87%E7%AB%A0%E4%B8%AD%E6%98%AF%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">而涛叔的文章中是：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">显而易见：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%99%E9%87%8C%E7%9A%8425-%E8%BF%99%E6%B6%89%E5%8F%8A%E5%88%B0%E4%BA%86-URL-%E7%BC%96%E7%A0%81%EF%BC%88URL-Encoding%EF%BC%89-%E7%9A%84%E5%BA%95%E5%B1%82%E6%9C%BA%E5%88%B6%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">关于这里的25,这涉及到了 URL 编码（URL Encoding） 的底层机制：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">总结：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">😄  😄 😄  😄 😄</span></a></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-pendant"><div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+    
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<script>
+        // ----- Variable declaration
+
+        var data = {
+                dt: new Date(),
+                hours: {
+                        el: document.querySelector('#hours'),
+                        val: 0 },
+
+                minutes: {
+                        el: document.querySelector('#minutes'),
+                        val: 0 },
+
+                seconds: {
+                        el: document.querySelector('#seconds'),
+                        val: 0 },
+
+                renderTime: 1000 };
+
+
+        // ----- Clock rendering logic
+
+        updateTime = () => {
+                let hour = data.dt.getHours();
+                let minute = data.dt.getMinutes();
+                let second = data.dt.getSeconds();
+
+                data.hours.el.classList.add('moving');
+                data.minutes.el.classList.add('moving');
+                data.seconds.el.classList.add('moving');
+
+                data.hours.val = hour == 0 && data.hours.val == 59 * 6 * 5 ? 360 : hour * 6 * 5;
+                data.minutes.val = minute == 0 && data.minutes.val == 59 * 6 ? 360 : minute * 6;
+                data.seconds.val = second == 0 && data.seconds.val == 59 * 6 ? 360 : second * 6;
+
+                data.hours.el.style.transform = `translate(-50%, -75%) rotate(${data.hours.val}deg)`;
+                data.minutes.el.style.transform = `translate(-50%, -75%) rotate(${data.minutes.val}deg)`;
+                data.seconds.el.style.transform = `translate(-50%, -75%) rotate(${data.seconds.val}deg)`;
+
+                data.dt.setSeconds(second + 1);
+        };
+
+        // ----- Clock execution
+
+        setInterval(() => {
+                updateTime();
+        }, data.renderTime);
+
+        updateTime();
+
+        // ----- Events area
+
+        data.seconds.el.addEventListener('transitionend', () => {
+                data.hours.el.classList.remove('moving');
+                data.minutes.el.classList.remove('moving');
+                data.seconds.el.classList.remove('moving');
+
+                // if (data.hours.val == 360) {
+                //   data.hours.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                // }
+
+                if (data.minutes.val == 360) {
+                        data.minutes.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+
+                if (data.seconds.val == 360) {
+                        data.seconds.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+        });
+
+</script>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw var(--color-primary);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw var(--color2);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .clock_logo{
+            width: 10vw;
+            height: 10vw;
+            max-width: 10vh;
+            max-height: 10vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-image: var(--clock-logo);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh var(--color-primary);
+            box-shadow: 0 1.4vh 2.8vh var(--color2);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard">
+        <iframe allowtransparency="true" frameborder="0" width="304" height="96" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=0&v=0&d=2&bd=0&k=000000&f=ff8040&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=300&h=96&align=center"></iframe>
+    </div>
+    <div class="qweather-logo">
+
+    </div>
+</div>
+<style>
+    .qweather{
+        position: relative;
+        padding-right: 5px;
+    }
+    .qweather #he-plugin-standard {
+        border: 2px solid var(--color-primary);
+        box-shadow: 0 1px 0 0 var(--color-primary), 0 1px 2px 0 var(--color-primary);
+        border-radius: 8px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-image: var(--qweather-logo);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+            </div>
+        
+    
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    #nexmoe-pendant .mdui-drawer{
+        width: 305px;
+    }
+    @media screen and (max-width: 1600px) {
+        #nexmoe-pendant {
+            display: none
+        }
+    }
+</style>
+</div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>

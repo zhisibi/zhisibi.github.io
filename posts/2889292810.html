@@ -1,0 +1,1686 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>谷歌云！将白嫖进行到底 - 博士日常</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="技术">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="images/head/head.png" type="image/png" />
+<meta name="description" content="Google Cloud 免费计划 {#Google-Cloud-免费计划.wp-block-heading} 具体步骤可参考这篇文章&nbsp;谷歌云Free Tier长期免费云服务器         1 non-preemptible&nbsp;e2-micro&nbsp;VM instance per month in one of the following US regions:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谷歌云！将白嫖进行到底">
+<meta property="og:url" content="http://bosh.zz.ac/posts/2889292810.html">
+<meta property="og:site_name" content="博士日常">
+<meta property="og:description" content="Google Cloud 免费计划 {#Google-Cloud-免费计划.wp-block-heading} 具体步骤可参考这篇文章&nbsp;谷歌云Free Tier长期免费云服务器         1 non-preemptible&nbsp;e2-micro&nbsp;VM instance per month in one of the following US regions:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://555212.xyz/images/budget-alert-diagram-pubsub.png">
+<meta property="article:published_time" content="2025-03-14T05:47:34.000Z">
+<meta property="article:modified_time" content="2026-01-27T12:19:22.790Z">
+<meta property="article:author" content="BOSh">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://555212.xyz/images/budget-alert-diagram-pubsub.png">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1769516382997">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+
+<link rel="stylesheet" href="/css/style.css?v=1769516382997">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1769516382997">
+    
+        <link rel="stylesheet" href="/themes/umaru/index.css?v=1769516382997">
+    
+        <link rel="stylesheet" href="/themes/asuka/index.css?v=1769516382997">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1769516382997"></script>
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z7TFL96ZH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Z7TFL96ZH');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 8.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/images/git.jpg)"></div><div class="nexmoe-character"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="BOSh"><img src="/images/avatar.jpg" alt="BOSh"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="BOSh">
+            <img src="/images/avatar.jpg" alt="BOSh" alt="BOSh">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>73 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>24<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>5<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archives/" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about/" title="关于博士">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于博士
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/links/" title="我的网站">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的网站
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/photos/" title="我的相册">
+            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
+            <div class="mdui-list-item-content">
+                我的相册
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="http://wpa.qq.com/msgrd?v=3&uin=526174637&site=qq&menu=yes"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(64, 196, 255);
+				background-color: rgba(64, 196, 255, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="mailto:zhisibi@gmail.com"
+			target="_blank"
+			mdui-tooltip="{content: 'mail'}"
+			style="
+				color: rgb(249,8,8);
+				background-color: rgba(249,8,8,.1);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://bosh.zz.ac/"
+			target="_blank"
+			mdui-tooltip="{content: '博客园'}"
+			style="
+				color: rgb(66, 214, 29);
+				background-color: rgba(66, 214, 29, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bokeyuan"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/zhisibi/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习笔记/">学习笔记</a>
+          <span class="category-list-count">46</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/生活分享/">生活分享</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网络资料/">网络资料</a>
+          <span class="category-list-count">22</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/美好生活/">美好生活</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/默认分类/">默认分类</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Hexo/" style="font-size: 17.78px;">Hexo</a> <a href="/tags/IPV6/" style="font-size: 10px;">IPV6</a> <a href="/tags/LINUX/" style="font-size: 10px;">LINUX</a> <a href="/tags/Markdow/" style="font-size: 10px;">Markdow</a> <a href="/tags/NAT64/" style="font-size: 10px;">NAT64</a> <a href="/tags/NIX/" style="font-size: 10px;">NIX</a> <a href="/tags/NODE/" style="font-size: 10px;">NODE</a> <a href="/tags/arch/" style="font-size: 13.33px;">arch</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/hugo/" style="font-size: 10px;">hugo</a> <a href="/tags/node-js/" style="font-size: 10px;">node js</a> <a href="/tags/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tags/pacman/" style="font-size: 10px;">pacman</a> <a href="/tags/podman/" style="font-size: 14.44px;">podman</a> <a href="/tags/zz-ac/" style="font-size: 15.56px;">zz.ac</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 16.67px;">分享</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" style="font-size: 10px;">博客部署成功</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 15.56px;">生活</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18.89px;">网络</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 12.22px;">记录</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(24);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        <!-- 一言 -->
+<div class="nexmoe-widget-wrap">
+  <h3 class="nexmoe-widget-title">
+    一言
+  </h3>
+  <div class="nexmoe-widget">
+    <ul class="hitokoto-box">
+      <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+        <a href="#" id="hitokoto_text">
+          
+        </a>
+        <a href="#" id="hitokoto_error_text" style="display: none;">
+          
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let hitokotoText = document.getElementById('hitokoto_text')
+  let hitokotoErroText = document.getElementById('hitokoto_error_text')
+  let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+  window.addEventListener('load', function () {
+    let url = 'https://v1.hitokoto.cn'
+    if (hitokotoCategory) {
+      url += '?c=' + hitokotoCategory
+    }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+        hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      })
+      .catch((reason) => {
+        console.error(11, reason)
+        hitokotoText.style.display = 'none'
+        hitokotoErroText.style.display = 'block'
+      })
+  })
+</script>
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">44</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/posts/3170278382.html">arch挂载NTFS文件系统</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2574627224.html">nat64--解决ipv6vps访问ipv4网络问题</a>
+          </li>
+        
+          <li>
+            <a href="/posts/1653291291.html">arch使用代理软件</a>
+          </li>
+        
+          <li>
+            <a href="/posts/2422458312.html">ARCH休眠到硬盘设置</a>
+          </li>
+        
+          <li>
+            <a href="/posts/123069775.html">arch备份和恢复系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+            <li>
+                <a href="https://bosh.zz.ac/" target="_blank" >
+                    <img src="https://bed.886423.xyz/file/1766048281277_bingimg_20251204_UHD_1_.jpg" alt="博士日常"></img>
+                    <p style="color: var(--color-primary)">博士日常</p>
+                </a>
+            </li>
+        
+		</ul>
+    </div>
+</div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
+    
+   
+    <div class="nexmoe-copyright">
+        &copy; 2026 BOSh
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">辽ICP备2021002341号</a>
+<div style="font-size: 12px">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+   本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+   本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="http://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202507/4a76f56eee929a2bbb2db4db0964b358--1510620921.jpg" alt="谷歌云！将白嫖进行到底" loading="lazy">
+            <h1>谷歌云！将白嫖进行到底</h1>
+        </div>
+        
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2025年03月14日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%96%99/">网络资料</a>
+        
+        
+    <a><i class="nexmoefont icon-areachart"></i>约4.6k字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要22分钟</a>
+
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1><strong><a target="_blank" rel="noreferrer noopener" href="https://cloud.google.com/free/docs/free-cloud-features#compute">Google Cloud 免费计划</a> {#Google-Cloud-免费计划.wp-block-heading}</strong></h1>
+<p>具体步骤可参考这篇文章&nbsp;<a target="_blank" rel="noreferrer noopener" href="https://luotianyi.vc/7989.html">谷歌云Free Tier长期免费云服务器</a></p>
+<ul class="wp-block-list">
+  <li>
+    1 non-preemptible&nbsp;<strong>e2-micro</strong>&nbsp;VM instance per month in one of the following US regions: <ul class="wp-block-list">
+      <li>
+        Oregon:&nbsp;<strong>us-west1</strong>
+      </li>
+      <li>
+        Iowa:&nbsp;<strong>us-central1</strong>
+      </li>
+      <li>
+        South Carolina:&nbsp;<strong>us-east1</strong>
+      </li>
+    </ul>
+  </li>
+  <li>
+    30 GB-months&nbsp;<strong>standard persistent disk</strong>&nbsp;（标准永久性磁盘HDD）
+  </li>
+  <li>
+    1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month
+  </li>
+  <li>
+    网络选择&nbsp;<strong>标准网络层级</strong>&nbsp;每月有200g的免费流量，
+  </li>
+</ul>
+<p>另外创建虚拟机实例页面有两个坑</p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+  <p>
+    数据保护中的备份要去掉，选择无备份<br>可观测性中 Ops Agent 安装要去掉，这是用于监控和日志录的，按量付费
+  </p>
+</blockquote>
+<h3 id="创建交换分区-创建交换分区-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#%E5%88%9B%E5%BB%BA%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA"></a>创建交换分区 {#创建交换分区.wp-block-heading}</h3>
+<p>由于&nbsp;<em>e2-micro</em>&nbsp;只有1G 内存，创建交换分区可以缓解内存不足的状况</p>
+<pre class="wp-block-code"><code>sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile</code></pre>
+<p>使交换空间永久生效，编辑&nbsp;<code>/etc/fstab</code>&nbsp;文件，添加以下内容：</p>
+<pre class="wp-block-code"><code>/swapfile none swap sw 0 0</code></pre>
+<p>优化交换使用策略，编辑&nbsp;<code>/etc/sysctl.conf</code>，添加：</p>
+<pre class="wp-block-code"><code>vm.swappiness=10</code></pre>
+<h3 id="Cloudflare-ddns-Cloudflare-ddns-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#Cloudflare-ddns"></a>Cloudflare ddns {#Cloudflare-ddns.wp-block-heading}</h3>
+<p>按照免费计划创建的&nbsp;<em>e2-micro</em>&nbsp;还有一个缺陷就是公网 IP 是临时性的，关机后会更换 IP 地址。这个可以用 ddns 解决，将域名托管在 cloudflare ，通过cloudflare API 动态更新域名的解析地址，以后地址再怎么变也不怕</p>
+<p>后面就可以安心用域名 ssh 登录，下面是脚本每次重启自动运行一次，推荐使用 systemd 服务而不用 crontab，systemd 服务可确保在网络准备好之后再运行脚本</p>
+<pre class="wp-block-code"><code>#!/bin/bash
+
+# --- Configuration ---
+AUTH_EMAIL="" # Optional: Older API key method
+API_TOKEN="" # !!! 必须修改: Your Cloudflare API Token !!!
+ZONE_ID="" # !!! 必须修改: Your Zone ID !!!
+RECORD_TYPE="A" # !!! 必须修改: Record type ("A" or "AAAA") !!!
+LOG_FILE="" # !!! 检查确认: Log file path and permissions !!!
+IP_CACHE_FILE="" # !!! 检查确认: Cache file path and permissions !!!
+SLEEP_BETWEEN_RECORDS=1 # Seconds to wait between processing records (0 to disable)
+
+# !!! 必须修改: List of DNS records to update !!!
+RECORD_NAMES=(
+"baidu.com"
+"sb.baidu.com"
+# Add more records here...
+)
+
+# Public IP lookup services (primary and backups)
+if [ "&lt;span class="katex math inline"&gt;RECORD_TYPE" == "A" ]; then
+IP_SERVICES=("https://api.ipify.org" "https://icanhazip.com" "https://ipinfo.io/ip")
+IP_TYPE_DESC="IPv4"
+elif [ "&lt;/span&gt;RECORD_TYPE" == "AAAA" ]; then
+IP_SERVICES=("https://api64.ipify.org" "https://icanhazip.com" "https://ipinfo.io/ip")
+IP_TYPE_DESC="IPv6"
+else
+# Log initial config error to file if possible, otherwise echo
+err_msg="&lt;span class="katex math inline"&gt;(date '+%Y-%m-%d %H:%M:%S') - Error: Unsupported RECORD_TYPE:&lt;/span&gt;RECORD_TYPE"
+if [ -n "&lt;span class="katex math inline"&gt;LOG_FILE" ] &amp;&amp; [ -d "&lt;/span&gt;(dirname "&lt;span class="katex math inline"&gt;LOG_FILE")" ] &amp;&amp; [ -w "&lt;/span&gt;(dirname "&lt;span class="katex math inline"&gt;LOG_FILE")" ]; then
+echo "&lt;/span&gt;err_msg" &gt;&gt; "&lt;span class="katex math inline"&gt;LOG_FILE"
+else
+echo "&lt;/span&gt;err_msg"
+fi
+exit 1
+fi
+# --- End Configuration ---
+
+# --- Helper function for logging ---
+log() {
+local message="&lt;span class="katex math inline"&gt;1"
+local log_entry="&lt;/span&gt;(date '+%Y-%m-%d %H:%M:%S') - &lt;span class="katex math inline"&gt;message"
+# Try to log to file, fallback to echo if file/dir not writable or not set
+if [ -n "&lt;/span&gt;LOG_FILE" ]; then
+if ! echo "&lt;span class="katex math inline"&gt;log_entry" &gt;&gt; "&lt;/span&gt;LOG_FILE" 2&gt;/dev/null; then
+echo "&lt;span class="katex math inline"&gt;log_entry (Error writing to log file:&lt;/span&gt;LOG_FILE)"
+fi
+else
+echo "&lt;span class="katex math inline"&gt;log_entry"
+fi
+}
+
+# --- Function to get current public IP with redundancy ---
+get_current_ip() {
+local ip=""
+for service in "&lt;/span&gt;{IP_SERVICES[@]}"; do
+log "Attempting to get public IP from &lt;span class="katex math inline"&gt;service..."
+ip=&lt;/span&gt;(curl -s --connect-timeout 5 "&lt;span class="katex math inline"&gt;service")
+if [[ -n "&lt;/span&gt;ip" &amp;&amp; "&lt;span class="katex math inline"&gt;ip" =~ ^[0-9a-fA-F.:]+&lt;/span&gt; ]]; then
+log "Successfully retrieved IP: &lt;span class="katex math inline"&gt;ip from&lt;/span&gt;service"
+echo "&lt;span class="katex math inline"&gt;ip"
+return 0
+else
+log "Failed or received invalid response from&lt;/span&gt;service (Response: &lt;span class="katex math inline"&gt;ip)"
+fi
+done
+log "Error: Could not retrieve current public IP from any service."
+return 1
+}
+
+# --- Main Logic ---
+
+# 1. Get current public IP address
+CURRENT_IP=&lt;/span&gt;(get_current_ip)
+if [ &lt;span class="katex math inline"&gt;? -ne 0 ]; then
+exit 1
+fi
+log "Current public&lt;/span&gt;IP_TYPE_DESC IP is: &lt;span class="katex math inline"&gt;CURRENT_IP"
+
+# 2. Compare with cached IP
+CACHED_IP=""
+if [ -f "&lt;/span&gt;IP_CACHE_FILE" ]; then
+CACHED_IP=&lt;span class="katex math inline"&gt;(cat "&lt;/span&gt;IP_CACHE_FILE")
+log "Last known IP from cache (&lt;span class="katex math inline"&gt;IP_CACHE_FILE):&lt;/span&gt;CACHED_IP"
+fi
+
+if [ "&lt;span class="katex math inline"&gt;CURRENT_IP" == "&lt;/span&gt;CACHED_IP" ]; then
+log "Public IP (&lt;span class="katex math inline"&gt;CURRENT_IP) matches cached IP. No Cloudflare update needed."
+exit 0
+fi
+
+log "Public IP (&lt;/span&gt;CURRENT_IP) differs from cached IP (&lt;span class="katex math inline"&gt;CACHED_IP) or cache is empty. Proceeding with Cloudflare checks..."
+
+# --- Loop through each record name ---
+log "Starting DNS update process for&lt;/span&gt;{#RECORD_NAMES[@]} record(s)..."
+ALL_SUCCESS=true
+UPDATES_PERFORMED=false
+
+for RECORD_NAME in "&lt;span class="katex math inline"&gt;{RECORD_NAMES[@]}"; do
+log "--- Processing record:&lt;/span&gt;RECORD_NAME ---"
+
+# 3. Get the DNS Record ID, current IP, and **Proxied Status** for THIS record from Cloudflare
+RECORD_INFO=&lt;span class="katex math inline"&gt;(curl -s --connect-timeout 10 -X GET "https://api.cloudflare.com/client/v4/zones/&lt;/span&gt;ZONE_ID/dns_records?type=&lt;span class="katex math inline"&gt;RECORD_TYPE&amp;name=&lt;/span&gt;RECORD_NAME" \
+-H "Authorization: Bearer &lt;span class="katex math inline"&gt;API_TOKEN" \
+-H "Content-Type: application/json")
+
+RECORD_SUCCESS=&lt;/span&gt;(echo "&lt;span class="katex math inline"&gt;RECORD_INFO" | jq -r '.success')
+if [ "&lt;/span&gt;RECORD_SUCCESS" != "true" ]; then
+log "Error querying DNS record for '&lt;span class="katex math inline"&gt;RECORD_NAME'. API Response:&lt;/span&gt;RECORD_INFO"
+ALL_SUCCESS=false
+continue
+fi
+
+RECORD_COUNT=&lt;span class="katex math inline"&gt;(echo "&lt;/span&gt;RECORD_INFO" | jq '.result | length')
+if [ "&lt;span class="katex math inline"&gt;RECORD_COUNT" -eq 0 ]; then
+log "Error: DNS record '&lt;/span&gt;RECORD_NAME' (&lt;span class="katex math inline"&gt;RECORD_TYPE) not found. Skipping."
+ALL_SUCCESS=false
+continue
+fi
+if [ "&lt;/span&gt;RECORD_COUNT" -gt 1 ]; then
+log "Warning: Multiple records found for '&lt;span class="katex math inline"&gt;RECORD_NAME' (&lt;/span&gt;RECORD_TYPE). Using the first one."
+fi
+
+# Extract ID, IP, and Proxied Status
+RECORD_ID=&lt;span class="katex math inline"&gt;(echo "&lt;/span&gt;RECORD_INFO" | jq -r '.result[0].id')
+RECORD_IP=&lt;span class="katex math inline"&gt;(echo "&lt;/span&gt;RECORD_INFO" | jq -r '.result[0].content')
+RECORD_PROXIED_STATUS=&lt;span class="katex math inline"&gt;(echo "&lt;/span&gt;RECORD_INFO" | jq -r '.result[0].proxied') # &lt;&lt;&lt; 添加: 获取代理状态
+
+# Validate all extracted values
+if [ -z "&lt;span class="katex math inline"&gt;RECORD_ID" ] || [ "&lt;/span&gt;RECORD_ID" == "null" ] || \
+[ -z "&lt;span class="katex math inline"&gt;RECORD_IP" ] || [ "&lt;/span&gt;RECORD_IP" == "null" ] || \
+[ -z "&lt;span class="katex math inline"&gt;RECORD_PROXIED_STATUS" ] || [ "&lt;/span&gt;RECORD_PROXIED_STATUS" == "null" ]; then # &lt;&lt;&lt; 添加: 验证代理状态
+log "Error: Could not retrieve valid DNS Record ID, IP, or Proxied status for '&lt;span class="katex math inline"&gt;RECORD_NAME'. Response:&lt;/span&gt;RECORD_INFO. Skipping."
+ALL_SUCCESS=false
+continue
+fi
+
+log "Cloudflare DNS IP for &lt;span class="katex math inline"&gt;RECORD_NAME is:&lt;/span&gt;RECORD_IP, Proxied: &lt;span class="katex math inline"&gt;RECORD_PROXIED_STATUS" # &lt;&lt;&lt; 修改: 日志包含代理状态
+
+# 4. Compare IPs and update THIS record if necessary, preserving proxied status
+if [ "&lt;/span&gt;CURRENT_IP" != "&lt;span class="katex math inline"&gt;RECORD_IP" ]; then
+log "IP has changed for&lt;/span&gt;RECORD_NAME (&lt;span class="katex math inline"&gt;RECORD_IP -&gt;&lt;/span&gt;CURRENT_IP). Updating Cloudflare DNS record..."
+
+UPDATE_RESPONSE=&lt;span class="katex math inline"&gt;(curl -s --connect-timeout 10 -X PUT "https://api.cloudflare.com/client/v4/zones/&lt;/span&gt;ZONE_ID/dns_records/&lt;span class="katex math inline"&gt;RECORD_ID" \
+-H "Authorization: Bearer&lt;/span&gt;API_TOKEN" \
+-H "Content-Type: application/json" \
+--data "{\"type\":\"&lt;span class="katex math inline"&gt;RECORD_TYPE\",\"name\":\"&lt;/span&gt;RECORD_NAME\",\"content\":\"&lt;span class="katex math inline"&gt;CURRENT_IP\",\"ttl\":1,\"proxied\":&lt;/span&gt;RECORD_PROXIED_STATUS}") # &lt;&lt;&lt; 修改: 使用变量 &lt;span class="katex math inline"&gt;RECORD_PROXIED_STATUS
+
+UPDATE_SUCCESS=&lt;/span&gt;(echo "&lt;span class="katex math inline"&gt;UPDATE_RESPONSE" | jq -r '.success')
+
+if [ "&lt;/span&gt;UPDATE_SUCCESS" == "true" ]; then
+log "Successfully updated DNS record for &lt;span class="katex math inline"&gt;RECORD_NAME to&lt;/span&gt;CURRENT_IP (Proxied status kept as &lt;span class="katex math inline"&gt;RECORD_PROXIED_STATUS)."
+UPDATES_PERFORMED=true
+else
+log "Error updating DNS record for&lt;/span&gt;RECORD_NAME. API Response: &lt;span class="katex math inline"&gt;UPDATE_RESPONSE"
+ALL_SUCCESS=false
+fi
+else
+log "Cloudflare IP for&lt;/span&gt;RECORD_NAME already matches current public IP (&lt;span class="katex math inline"&gt;CURRENT_IP). No update needed."
+fi
+
+# Optional sleep between records
+if [ "&lt;/span&gt;SLEEP_BETWEEN_RECORDS" -gt 0 ]; then
+log "Waiting &lt;span class="katex math inline"&gt;{SLEEP_BETWEEN_RECORDS}s before next record..."
+sleep "&lt;/span&gt;SLEEP_BETWEEN_RECORDS"
+fi
+
+done # --- End of loop for RECORD_NAMES ---
+
+# 5. Update cache file if the process completed without critical errors preventing updates and IP changed
+# (We update cache even if some non-critical errors occurred for individual records,
+# as long as we successfully determined the new public IP differs from the old cache)
+if [ "&lt;span class="katex math inline"&gt;CURRENT_IP" != "&lt;/span&gt;CACHED_IP" ]; then
+# Check if we should update the cache. We update if *any* update was attempted or if cache was initially empty.
+# We might choose *not* to update if ALL attempts failed, but let's update if the public IP genuinely changed.
+log "Updating IP cache file &lt;span class="katex math inline"&gt;IP_CACHE_FILE with new IP:&lt;/span&gt;CURRENT_IP"
+echo "&lt;span class="katex math inline"&gt;CURRENT_IP" &gt; "&lt;/span&gt;IP_CACHE_FILE"
+# More conservative approach: only update cache if &lt;span class="katex math inline"&gt;ALL_SUCCESS is true AND&lt;/span&gt;UPDATES_PERFORMED is true.
+# if &lt;span class="katex math inline"&gt;ALL_SUCCESS &amp;&amp;&lt;/span&gt;UPDATES_PERFORMED; then ... echo ... fi
+fi
+
+
+log "Finished processing all records."
+if $ALL_SUCCESS; then
+exit 0
+else
+log "One or more errors occurred during the update process. Check logs above."
+exit 1
+fi</code></pre>
+<p>填入开头的变量，可遍历修改同个ID域的多个二级域名，其中会生成 log 文件，和 ip 缓存文件， ip 缓存文件用于比对 ip 免于频繁访问 API 触发风控。</p>
+<p>在&nbsp;<code>/etc/systemd/system/</code>&nbsp;目录下创建 systemd 服务单元文件 cloudflare-ddns.service</p>
+<pre class="wp-block-code"><code>[Unit]
+Description=Cloudflare DDNS Update Script
+Wants=network-online.target # 需要网络连接后才运行
+After=network-online.target # 在网络连接之后运行
+
+[Service]
+Type=oneshot # 只需要运行一次
+ExecStart= # 脚本的完整路径
+RemainAfterExit=yes # 即使 ExecStart 完成，服务也视为活动 (可选，对 oneshot 有用)
+# 如果你的脚本需要以特定用户运行，可以取消下面一行的注释
+# User=guest
+# 注意：如果以特定用户运行，确保该用户对日志文件/目录有写入权限
+
+[Install]
+WantedBy=multi-user.target # 在多用户模式下启用</code></pre>
+<p>重新加载 systemd 配置，设置服务开机自启</p>
+<pre class="wp-block-code"><code>sudo systemctl daemon-reload
+sudo systemctl enable cloudflare-ddns.service</code></pre>
+<p>立即运行一次服务来测试它，检查服务状态（cloudflare-ddns.service需要将注释去掉，不然会报错）</p>
+<pre class="wp-block-code"><code>sudo systemctl start cloudflare-ddns.service
+sudo systemctl status cloudflare-ddns.service</code></pre>
+<h3 id="安全防护-CrowdSec-安全防护-CrowdSec-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4-CrowdSec"></a>安全防护 CrowdSec {#安全防护-CrowdSec.wp-block-heading}</h3>
+<p>服务器当然要对外服务，难免要开放个别端口，如果只是用来 ssh remote 完全可以安装 VPN 只对自己开放（ IP 地址会经常被封），为了避免被反薅需要特别的安全防护，长亭雷池太吃资源所以选择了 CrowdSec ，有总比没有好</p>
+<p><a target="_blank" rel="noreferrer noopener" href="https://doc.crowdsec.net/u/getting_started/installation/linux">安装步骤</a></p>
+<p>直接按照官网走就好，注册了账号会提示，其中安全组件，我只安装了防火墙和 Nginx，规则订阅的话因为没有会员选择了官方推荐的 Firehol <a target="_blank" rel="noopener" href="http://greensnow.co">greensnow.co</a> list 和 Free Proxies list</p>
+<h3 id="网络达量停机-网络达量停机-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#%E7%BD%91%E7%BB%9C%E8%BE%BE%E9%87%8F%E5%81%9C%E6%9C%BA"></a>网络达量停机 {#网络达量停机.wp-block-heading}</h3>
+<p>云主机最怕的就是被刷流量，一觉醒来一套房就没了，采用基于 vnstat 的流量监控和自动停机方案可以防止流量超标，</p>
+<p><a target="_blank" rel="noreferrer noopener" href="https://taoshu.in/unix/vnstat.html">为云主机实现网络达量停机</a><br>
+上面是我参考的博客文章，不过里面的脚本也太简洁了，我还是让 ChatGPT 帮我另外写了一个脚本，每分钟执行一次 sudo crontab e，因为关机需要 sudo 操作</p>
+<pre class="wp-block-code"><code>#!/bin/bash
+#
+# 脚本名称: check_traffic_limit.sh
+# 描述:     监控指定网络接口的月度流量，并在达到限制时关闭服务器。
+# 作者:     (根据用户需求编写)
+# 日期:     2025-04-12
+#
+# 注意:     此脚本需要以 root 权限运行 (例如通过 sudo) 才能执行关机操作
+#           并且需要确保 vnstat, jq 命令已安装。
+#           建议通过 cron 定期执行此脚本。
+#
+
+# --- 配置项 ---
+INTERFACE="ens4"                  # 要监控的网络接口名称
+LIMIT_GB=200                      # 流量限制 (单位: GB)
+BYTES_PER_GB=1000000000           # 每 GB 的字节数 (10^9, SI 标准)
+LOG_FILE="/var/log/traffic_limit_check.log" # 日志文件路径
+
+# --- 计算字节单位的限制值 ---
+LIMIT_BYTES=&lt;span class="katex math inline"&gt;((LIMIT_GB * BYTES_PER_GB))
+
+# --- 命令路径 (自动查找) ---
+# 使用 command -v 查找命令路径，更可靠
+VNSTAT_CMD=&lt;/span&gt;(command -v vnstat)
+JQ_CMD=&lt;span class="katex math inline"&gt;(command -v jq)
+SHUTDOWN_CMD="/sbin/shutdown" #crontab 可能没有 PATH 环境变量 使用 sudo which shutdown 来查找
+AWK_CMD=&lt;/span&gt;(command -v awk)
+DATE_CMD=&lt;span class="katex math inline"&gt;(command -v date)
+
+# --- 脚本选项 ---
+# set -o pipefail # 让管道命令的返回值取最后一个非零返回值 (如果需要更严格的错误处理)
+
+# --- 日志记录函数 ---
+log_message() {
+    # 将带有时间戳的消息追加到日志文件
+    echo "&lt;/span&gt;(&lt;span class="katex math inline"&gt;DATE_CMD '+%Y-%m-%d %H:%M:%S') -&lt;/span&gt;1" &gt;&gt; "&lt;span class="katex math inline"&gt;LOG_FILE"
+}
+
+# --- 依赖检查 ---
+# 检查必要的命令是否存在
+if [ -z "&lt;/span&gt;VNSTAT_CMD" ]; then
+    log_message "错误: 未找到 'vnstat' 命令。请安装 vnstat 并确保其在 PATH 中。"
+    exit 1
+fi
+if [ -z "&lt;span class="katex math inline"&gt;JQ_CMD" ]; then
+    log_message "错误: 未找到 'jq' 命令。请安装 jq 并确保其在 PATH 中。"
+    exit 1
+fi
+if [ -z "&lt;/span&gt;SHUTDOWN_CMD" ]; then
+    # 注意: shutdown 通常需要 root 权限才能找到或执行
+    log_message "错误: 未找到 'shutdown' 命令。请确保以 root 权限运行，或命令路径正确。"
+    exit 1
+fi
+if [ -z "&lt;span class="katex math inline"&gt;AWK_CMD" ]; then
+    log_message "错误: 未找到 'awk' 命令。"
+    exit 1
+fi
+if [ -z "&lt;/span&gt;DATE_CMD" ]; then
+    # 这个几乎不可能找不到，但以防万一
+    log_message "错误: 未找到 'date' 命令。"
+    exit 1
+fi
+
+# --- 主要逻辑 ---
+log_message "====== 开始检查接口 &lt;span class="katex math inline"&gt;INTERFACE 的流量 ======"
+log_message "配置限制:&lt;/span&gt;LIMIT_GB GB (&lt;span class="katex math inline"&gt;LIMIT_BYTES 字节)"
+
+# 获取指定接口的月度流量数据 (JSON 格式)
+# 使用 -i 指定接口，--json m 获取月度 json
+JSON_DATA=&lt;/span&gt;(&lt;span class="katex math inline"&gt;VNSTAT_CMD --json m -i "&lt;/span&gt;INTERFACE")
+VNSTAT_EXIT_CODE=&lt;span class="katex math inline"&gt;?
+
+# 检查 vnstat 命令是否成功执行
+if [&lt;/span&gt;VNSTAT_EXIT_CODE -ne 0 ]; then
+    log_message "错误: vnstat 命令执行失败 (接口: &lt;span class="katex math inline"&gt;INTERFACE, 退出码:&lt;/span&gt;VNSTAT_EXIT_CODE)。请检查 vnstat 是否正确配置并运行。"
+    # 可以选择记录 vnstat 可能的错误输出 (如果有的话)
+    # log_message "vnstat 输出: &lt;span class="katex math inline"&gt;JSON_DATA" # 注意 JSON_DATA 此时可能包含错误信息而非 JSON
+    exit 1
+fi
+
+# 使用 jq 解析 JSON 获取当月的 rx 和 tx 字节数
+# **重要修正**: 使用 .name 选择接口，而不是 .id
+# 使用 '.interfaces[] | select(.name ==&lt;/span&gt;iface) | .traffic.month[0]' 定位到当月数据
+# 然后分别提取 .rx 和 .tx，使用 // 0 提供默认值以防字段缺失或为 null
+CURRENT_MONTH_RX_BYTES=&lt;span class="katex math inline"&gt;(echo "&lt;/span&gt;JSON_DATA" | &lt;span class="katex math inline"&gt;JQ_CMD --arg iface "&lt;/span&gt;INTERFACE" '.interfaces[] | select(.name == &lt;span class="katex math inline"&gt;iface) | .traffic.month[0].rx // 0')
+CURRENT_MONTH_TX_BYTES=&lt;/span&gt;(echo "&lt;span class="katex math inline"&gt;JSON_DATA" |&lt;/span&gt;JQ_CMD --arg iface "&lt;span class="katex math inline"&gt;INTERFACE" '.interfaces[] | select(.name ==&lt;/span&gt;iface) | .traffic.month[0].tx // 0')
+
+# 验证 jq 是否成功提取了有效的数值 (必须是非负整数)
+# 使用正则表达式检查变量是否只包含数字
+if ! [[ "&lt;span class="katex math inline"&gt;CURRENT_MONTH_RX_BYTES" =~ ^[0-9]+&lt;/span&gt; ]]; then
+    log_message "错误: 未能从 &lt;span class="katex math inline"&gt;INTERFACE 的 vnstat JSON 中解析出有效的 RX 字节数。获取到的值: '&lt;/span&gt;CURRENT_MONTH_RX_BYTES'"
+    log_message "请手动执行 'sudo vnstat --json m -i &lt;span class="katex math inline"&gt;INTERFACE' 检查 JSON 输出内容。"
+    # 如果需要调试，取消下面这行的注释以记录完整的 JSON 数据
+    # echo "&lt;/span&gt;JSON_DATA" &gt;&gt; "&lt;span class="katex math inline"&gt;LOG_FILE"
+    exit 1
+fi
+if ! [[ "&lt;/span&gt;CURRENT_MONTH_TX_BYTES" =~ ^[0-9]+&lt;span class="katex math inline"&gt;]]; then
+    log_message "错误: 未能从&lt;/span&gt;INTERFACE 的 vnstat JSON 中解析出有效的 TX 字节数。获取到的值: '&lt;span class="katex math inline"&gt;CURRENT_MONTH_TX_BYTES'"
+    log_message "请手动执行 'sudo vnstat --json m -i&lt;/span&gt;INTERFACE' 检查 JSON 输出内容。"
+    # 如果需要调试，取消下面这行的注释以记录完整的 JSON 数据
+    # echo "&lt;span class="katex math inline"&gt;JSON_DATA" &gt;&gt; "&lt;/span&gt;LOG_FILE"
+    exit 1
+fi
+
+# 计算当月总字节数 (RX + TX)
+CURRENT_TOTAL_BYTES=&lt;span class="katex math inline"&gt;((CURRENT_MONTH_RX_BYTES + CURRENT_MONTH_TX_BYTES))
+
+# 将当前总字节数转换为 GB (保留两位小数) 以便日志阅读
+# 使用 awk 进行浮点数计算
+CURRENT_TOTAL_GB=&lt;/span&gt;(&lt;span class="katex math inline"&gt;AWK_CMD "BEGIN {printf \"%.2f\",&lt;/span&gt;CURRENT_TOTAL_BYTES / &lt;span class="katex math inline"&gt;BYTES_PER_GB}")
+
+log_message "&lt;/span&gt;INTERFACE 当前月度总用量: &lt;span class="katex math inline"&gt;CURRENT_TOTAL_GB GB (&lt;/span&gt;CURRENT_TOTAL_BYTES 字节)。"
+
+# 比较当前用量与限制值 (大于或等于)
+if [ "&lt;span class="katex math inline"&gt;CURRENT_TOTAL_BYTES" -ge "&lt;/span&gt;LIMIT_BYTES" ]; then
+    log_message "警告: 接口 &lt;span class="katex math inline"&gt;INTERFACE 的月度流量 (&lt;/span&gt;CURRENT_TOTAL_GB GB) 已达到或超出限制 (&lt;span class="katex math inline"&gt;LIMIT_GB GB)。"
+    log_message "====== 正在执行关机操作! ======"
+    # 执行立即关机 - 需要 ROOT 权限
+    "&lt;/span&gt;SHUTDOWN_CMD" -h now "系统关机：接口 &lt;span class="katex math inline"&gt;INTERFACE 的月度网络流量 (&lt;/span&gt;CURRENT_TOTAL_GB GB) 已达到 $LIMIT_GB GB 的限制。"
+    # 关机命令发出后，脚本可能不会执行到 exit 0
+    exit 0 # 理论上关机后不会执行到这里
+else
+    log_message "状态: 流量用量在限制范围内。"
+    log_message "====== 检查完成 ======"
+    exit 0 # 正常退出
+fi</code></pre>
+<p>脚本每分钟执行一次产生的 log 文件，可以用日志轮转（logrotate）解决</p>
+<h3 id="谷歌官方超预算停机-谷歌官方超预算停机-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#%E8%B0%B7%E6%AD%8C%E5%AE%98%E6%96%B9%E8%B6%85%E9%A2%84%E7%AE%97%E5%81%9C%E6%9C%BA"></a>谷歌官方超预算停机 {#谷歌官方超预算停机.wp-block-heading}</h3>
+<p>查阅了谷歌云文档发现，官方可以实现超预算停机的效果，这不巧了吗</p>
+<p><a target="_blank" rel="noreferrer noopener" href="https://cloud.google.com/billing/docs/how-to/disable-billing-with-notifications?hl=zh-cn#functions_billing_limit-nodejs">停用带通知的结算使用情况</a><br>
+<a target="_blank" rel="noreferrer noopener" href="https://cloud.google.com/billing/docs/how-to/listen-to-notifications?hl=zh-cn#test-function">监听 Pub/Sub 通知</a></p>
+<img decoding="async" alt="image" src="https://555212.xyz/images/budget-alert-diagram-pubsub.png">  
+这是官方的流程图很好理解，创建一个预算和提醒，当费用超过预算时，会发送邮件和 Pub/Sub 通知，而Pub/Sub 通知可以触发 Cloud run Function 来停用结算账号避免产生超额费用。
+<ol class="wp-block-list">
+  <li>
+    首先创建一个预算，勾选邮件提醒和关联 Pub/Sub 通知，关联 Pub/Sub 通知会要求你新建一个主题
+  </li>
+  <li>
+    IAM 中新建服务账号，授予 roles/billing.admin 权限，作为&nbsp;<strong>运行时服务账号</strong>
+  </li>
+  <li>
+    进入 Pub/Sub 界面找到刚创建的主题，在主题的&nbsp;<code>更多操作</code>&nbsp;中触发 Cloud Run 函数，其中代码直接粘贴文档代码，不设置环境变量话，其中&nbsp;<code>PROJECT_ID</code>&nbsp;修改为你实际的项目 ID
+  </li>
+  <li>
+    Pub/Sub 主题中发布消息测试
+  </li>
+</ol>
+<p><strong>走了一遍流程发现其中的难点在于权限</strong></p>
+<ul class="wp-block-list">
+  <li>
+    Pub/Sub 服务 (<code>service-&lt;PROJECT_NUMBER&gt;@gcp-sa-pubsub.iam.gserviceaccount.com</code>) 需要&nbsp;<code>Cloud Run Invoker</code>&nbsp;权限来<strong>触发/调用</strong>你的函数
+  </li>
+  <li>
+    函数需要调用 Billing API 的权限： 当你的函数代码运行时，去调用 Cloud Billing API 来执行<strong>停用结算</strong>的操作。
+  </li>
+</ul>
+<p>要解决上面两个问题，在创建 Cloud run Function 时，直接用默认的Compute Engine default service account 为&nbsp;<strong>触发器服务账号</strong>（默认），<strong>运行时服务账号</strong>&nbsp;需要在 IAM 中新建，并授予其 Billing Account Administrator 角色</p>
+<p>还有用文档中的 node.js ，用 Python 好多次没有成功。</p>
+<h3 id="信用卡限额-信用卡限额-wp-block-heading"><a target="_blank" rel="noopener" href="https://555212.xyz/2025/04/15/%E8%B0%B7%E6%AD%8C%E4%BA%91%EF%BC%81%E5%B0%86%E7%99%BD%E5%AB%96%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95/#%E4%BF%A1%E7%94%A8%E5%8D%A1%E9%99%90%E9%A2%9D"></a>信用卡限额 {#信用卡限额.wp-block-heading}</h3>
+<p>最好绑定一张虚拟信用卡，真实的信用卡的话一定要限制额度</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>BOSh<br>
+        
+        <strong>本文链接：</strong><a href="http://bosh.zz.ac/posts/2889292810.html" title="http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;2889292810.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;bosh.zz.ac&#x2F;posts&#x2F;2889292810.html</a><br>
+
+        
+            <strong>版权声明：</strong>本文由BoSh发布，部分内容来源于网络。
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1769516382477"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <div class="valine"></div>
+<script src='https://lib.baomitu.com/valine/1.3.9/Valine.min.js'></script>
+<script>
+  new Valine({
+      el: '.valine',
+      appId: 'r5zxC0st0DDjPA9auXzMV7HY-gzGzoHsz',
+      appKey: '3bqCsovpyfTPHUzTHovd3V3V'
+  })
+</script>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Google Cloud 免费计划 {#Google-Cloud-免费计划.wp-block-heading}</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA-%E5%88%9B%E5%BB%BA%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA-wp-block-heading"><span class="toc-number">1.1.</span> <span class="toc-text">创建交换分区 {#创建交换分区.wp-block-heading}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cloudflare-ddns-Cloudflare-ddns-wp-block-heading"><span class="toc-number">1.2.</span> <span class="toc-text">Cloudflare ddns {#Cloudflare-ddns.wp-block-heading}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4-CrowdSec-%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4-CrowdSec-wp-block-heading"><span class="toc-number">1.3.</span> <span class="toc-text">安全防护 CrowdSec {#安全防护-CrowdSec.wp-block-heading}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BE%BE%E9%87%8F%E5%81%9C%E6%9C%BA-%E7%BD%91%E7%BB%9C%E8%BE%BE%E9%87%8F%E5%81%9C%E6%9C%BA-wp-block-heading"><span class="toc-number">1.4.</span> <span class="toc-text">网络达量停机 {#网络达量停机.wp-block-heading}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8C%E5%AE%98%E6%96%B9%E8%B6%85%E9%A2%84%E7%AE%97%E5%81%9C%E6%9C%BA-%E8%B0%B7%E6%AD%8C%E5%AE%98%E6%96%B9%E8%B6%85%E9%A2%84%E7%AE%97%E5%81%9C%E6%9C%BA-wp-block-heading"><span class="toc-number">1.5.</span> <span class="toc-text">谷歌官方超预算停机 {#谷歌官方超预算停机.wp-block-heading}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E7%94%A8%E5%8D%A1%E9%99%90%E9%A2%9D-%E4%BF%A1%E7%94%A8%E5%8D%A1%E9%99%90%E9%A2%9D-wp-block-heading"><span class="toc-number">1.6.</span> <span class="toc-text">信用卡限额 {#信用卡限额.wp-block-heading}</span></a></li></ol></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-pendant"><div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+    
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<script>
+        // ----- Variable declaration
+
+        var data = {
+                dt: new Date(),
+                hours: {
+                        el: document.querySelector('#hours'),
+                        val: 0 },
+
+                minutes: {
+                        el: document.querySelector('#minutes'),
+                        val: 0 },
+
+                seconds: {
+                        el: document.querySelector('#seconds'),
+                        val: 0 },
+
+                renderTime: 1000 };
+
+
+        // ----- Clock rendering logic
+
+        updateTime = () => {
+                let hour = data.dt.getHours();
+                let minute = data.dt.getMinutes();
+                let second = data.dt.getSeconds();
+
+                data.hours.el.classList.add('moving');
+                data.minutes.el.classList.add('moving');
+                data.seconds.el.classList.add('moving');
+
+                data.hours.val = hour == 0 && data.hours.val == 59 * 6 * 5 ? 360 : hour * 6 * 5;
+                data.minutes.val = minute == 0 && data.minutes.val == 59 * 6 ? 360 : minute * 6;
+                data.seconds.val = second == 0 && data.seconds.val == 59 * 6 ? 360 : second * 6;
+
+                data.hours.el.style.transform = `translate(-50%, -75%) rotate(${data.hours.val}deg)`;
+                data.minutes.el.style.transform = `translate(-50%, -75%) rotate(${data.minutes.val}deg)`;
+                data.seconds.el.style.transform = `translate(-50%, -75%) rotate(${data.seconds.val}deg)`;
+
+                data.dt.setSeconds(second + 1);
+        };
+
+        // ----- Clock execution
+
+        setInterval(() => {
+                updateTime();
+        }, data.renderTime);
+
+        updateTime();
+
+        // ----- Events area
+
+        data.seconds.el.addEventListener('transitionend', () => {
+                data.hours.el.classList.remove('moving');
+                data.minutes.el.classList.remove('moving');
+                data.seconds.el.classList.remove('moving');
+
+                // if (data.hours.val == 360) {
+                //   data.hours.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                // }
+
+                if (data.minutes.val == 360) {
+                        data.minutes.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+
+                if (data.seconds.val == 360) {
+                        data.seconds.el.style.transform = 'translate(-50%, -75%) rotate(0deg)';
+                }
+        });
+
+</script>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw var(--color-primary);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw var(--color2);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: var(--color-primary);
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .clock_logo{
+            width: 10vw;
+            height: 10vw;
+            max-width: 10vh;
+            max-height: 10vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-image: var(--clock-logo);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh var(--color-primary);
+            box-shadow: 0 1.4vh 2.8vh var(--color2);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard">
+        <iframe allowtransparency="true" frameborder="0" width="304" height="96" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=0&v=0&d=2&bd=0&k=000000&f=ff8040&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=300&h=96&align=center"></iframe>
+    </div>
+    <div class="qweather-logo">
+
+    </div>
+</div>
+<style>
+    .qweather{
+        position: relative;
+        padding-right: 5px;
+    }
+    .qweather #he-plugin-standard {
+        border: 2px solid var(--color-primary);
+        box-shadow: 0 1px 0 0 var(--color-primary), 0 1px 2px 0 var(--color-primary);
+        border-radius: 8px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-image: var(--qweather-logo);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+            </div>
+        
+    
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    #nexmoe-pendant .mdui-drawer{
+        width: 305px;
+    }
+    @media screen and (max-width: 1600px) {
+        #nexmoe-pendant {
+            display: none
+        }
+    }
+</style>
+</div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>
