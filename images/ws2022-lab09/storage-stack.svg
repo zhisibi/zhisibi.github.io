@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .pool { fill: #e8f0fe; stroke: #1a3a6b; stroke-width: 2; }
+      .vd { fill: #fff8e1; stroke: #f9a825; stroke-width: 2; }
+      .t { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #1f2937; }
+      .s { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="t" x="10" y="25" style="font-size:15px">存储栈：物理盘 → 存储池 → 虚拟磁盘 → 卷（+ iSCSI / 重删）</text>
+  <g>
+    <rect class="box" x="10" y="45" width="150" height="240" rx="10"/>
+    <text class="t" x="25" y="72">3 块物理盘</text>
+    <text class="s" x="25" y="94">20GB × 3（裸盘）</text>
+    <text class="s" x="25" y="114">Data1.vhdx</text>
+    <text class="s" x="25" y="134">Data2.vhdx</text>
+    <text class="s" x="25" y="154">Data3.vhdx</text>
+    <text class="s" x="25" y="180">CanPool = True</text>
+    <text class="s" x="25" y="200">别初始化！</text>
+  </g>
+  <line class="line" x1="160" y1="165" x2="185" y2="165"/>
+  <g>
+    <rect class="pool" x="185" y="45" width="170" height="240" rx="10"/>
+    <text class="t" x="200" y="72">存储池 LabPool</text>
+    <text class="s" x="200" y="94">60GB 原始容量</text>
+    <text class="s" x="200" y="114">统一管理</text>
+    <text class="s" x="200" y="140">布局三选一：</text>
+    <text class="s" x="200" y="162">简单 60GB/坏1全没</text>
+    <text class="s" x="200" y="184" style="font-weight:bold;fill:#2e7d32">镜像 20GB/坏2可活 ✅</text>
+    <text class="s" x="200" y="206">奇偶 40GB/坏1可活</text>
+    <text class="s" x="200" y="232">本实验选三向镜像</text>
+  </g>
+  <line class="line" x1="355" y1="165" x2="380" y2="165"/>
+  <g>
+    <rect class="vd" x="380" y="45" width="160" height="240" rx="10"/>
+    <text class="t" x="395" y="72">虚拟磁盘+卷</text>
+    <text class="s" x="395" y="94">MirrorVD 20GB</text>
+    <text class="s" x="395" y="114">→ GPT → E: 盘</text>
+    <text class="s" x="395" y="134">NTFS / MirrorData</text>
+    <text class="s" x="395" y="160">拔 1 块盘：数据无恙</text>
+    <text class="s" x="395" y="180">拔 2 块盘：依然可读</text>
+    <text class="s" x="395" y="206">iSCSI 虚拟磁盘：</text>
+    <text class="s" x="395" y="226">E:\iscsi\shared01.vhdx</text>
+    <text class="s" x="395" y="246">→ 借给发起方当本地盘</text>
+  </g>
+  <g>
+    <rect class="box" x="565" y="45" width="185" height="240" rx="10" style="fill:#e6f4ea"/>
+    <text class="t" x="580" y="72">重复数据删除</text>
+    <text class="s" x="580" y="96">5 × 2GB 相同文件</text>
+    <text class="s" x="580" y="116">= 10GB</text>
+    <text class="s" x="580" y="140">重删后：2GB</text>
+    <text class="s" x="580" y="160" style="font-weight:bold;fill:#2e7d32">节省率 80%</text>
+    <text class="s" x="580" y="186">✅ 文件共享/VHD库</text>
+    <text class="s" x="580" y="206">❌ 数据库/运行中VM盘</text>
+    <text class="s" x="580" y="230">后台定时任务</text>
+    <text class="s" x="580" y="250">非实时生效</text>
+  </g>
+  <text class="s" x="10" y="310">iSCSI vs SMB：前者是块级（裸盘，客户端自己格式化），后者是文件级（文件夹）——用途完全不同</text>
+</svg>

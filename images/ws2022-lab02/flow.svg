@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="240" viewBox="0 0 760 240">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .hl { fill: #e8f0fe; stroke: #4a6fa5; stroke-width: 2; }
+      .title { font-family: sans-serif; font-size: 14px; font-weight: bold; fill: #1f2937; }
+      .sub { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+      .num { font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #ffffff; }
+    </style>
+  </defs>
+  <g>
+    <rect class="hl" x="10" y="80" width="130" height="80" rx="10"/>
+    <circle cx="30" cy="100" r="12" fill="#4a6fa5"/><text class="num" x="25" y="105">1</text>
+    <text class="title" x="48" y="105">改名</text>
+    <text class="sub" x="20" y="128">sconfig 2</text>
+    <text class="sub" x="20" y="146">WS2022-LAB01</text>
+  </g>
+  <g>
+    <rect class="hl" x="165" y="80" width="130" height="80" rx="10"/>
+    <circle cx="185" cy="100" r="12" fill="#4a6fa5"/><text class="num" x="180" y="105">2</text>
+    <text class="title" x="203" y="105">静态 IP</text>
+    <text class="sub" x="175" y="128">sconfig 8</text>
+    <text class="sub" x="175" y="146">192.168.100.10/24</text>
+  </g>
+  <g>
+    <rect class="hl" x="320" y="80" width="130" height="80" rx="10"/>
+    <circle cx="340" cy="100" r="12" fill="#4a6fa5"/><text class="num" x="335" y="105">3</text>
+    <text class="title" x="358" y="105">远程桌面</text>
+    <text class="sub" x="330" y="128">sconfig 7</text>
+    <text class="sub" x="330" y="146">mstsc 连接</text>
+  </g>
+  <g>
+    <rect class="hl" x="475" y="80" width="130" height="80" rx="10"/>
+    <circle cx="495" cy="100" r="12" fill="#4a6fa5"/><text class="num" x="490" y="105">4</text>
+    <text class="title" x="513" y="105">打补丁</text>
+    <text class="sub" x="485" y="128">sconfig 6</text>
+    <text class="sub" x="485" y="146">Windows Update</text>
+  </g>
+  <g>
+    <rect class="box" x="630" y="80" width="120" height="80" rx="10" style="fill:#e6f4ea"/>
+    <circle cx="650" cy="100" r="12" fill="#2e7d32"/><text class="num" x="645" y="105">5</text>
+    <text class="title" x="668" y="105">快照</text>
+    <text class="sub" x="640" y="128">检查点</text>
+    <text class="sub" x="640" y="146">日期_内容</text>
+  </g>
+  <line class="line" x1="140" y1="120" x2="165" y2="120"/>
+  <line class="line" x1="295" y1="120" x2="320" y2="120"/>
+  <line class="line" x1="450" y1="120" x2="475" y2="120"/>
+  <line class="line" x1="605" y1="120" x2="630" y2="120"/>
+  <text class="sub" x="10" y="40" style="font-size:13px;font-weight:bold;fill:#1f2937">裸机 → 可用实验服务器：20 分钟初始配置流水线</text>
+  <text class="sub" x="10" y="200">每步做完对照检查：hostname / ping 网关+外网 / mstsc 登录 / 更新完成后再打快照</text>
+</svg>

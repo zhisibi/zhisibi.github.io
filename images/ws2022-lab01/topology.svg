@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; rx: 10; }
+      .title { font-family: sans-serif; font-size: 15px; font-weight: bold; fill: #1f2937; }
+      .sub { font-family: sans-serif; font-size: 12px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+      .lbl { font-family: sans-serif; font-size: 11px; fill: #6b7280; }
+    </style>
+  </defs>
+  <rect class="box" x="20" y="40" width="720" height="220" rx="12"/>
+  <text class="title" x="40" y="70">宿主机 Host（Windows 10/11）</text>
+  <text class="sub" x="40" y="92">Hyper-V / VMware / VirtualBox</text>
+
+  <rect class="box" x="60" y="120" width="200" height="110" rx="10" style="fill:#e8f0fe"/>
+  <text class="title" x="80" y="150">WS2022-Lab01</text>
+  <text class="sub" x="80" y="172">2~4 核 / 4GB / 60GB</text>
+  <text class="sub" x="80" y="192">桌面体验 / 评估版</text>
+  <text class="sub" x="80" y="212">快照：纯净系统 ✅</text>
+
+  <rect class="box" x="300" y="120" width="180" height="110" rx="10" style="fill:#fef3e2"/>
+  <text class="title" x="320" y="150">NAT 网络</text>
+  <text class="sub" x="320" y="172">虚拟机上外网</text>
+  <text class="sub" x="320" y="192">Default Switch</text>
+
+  <rect class="box" x="520" y="120" width="180" height="110" rx="10" style="fill:#e6f4ea"/>
+  <text class="title" x="540" y="150">内部网络（预留）</text>
+  <text class="sub" x="540" y="172">DHCP / DNS / AD</text>
+  <text class="sub" x="540" y="192">隔离实验用</text>
+
+  <line class="line" x1="260" y1="175" x2="300" y2="175"/>
+  <line class="line" x1="260" y1="175" x2="300" y2="175" stroke-dasharray="5,4"/>
+  <text class="lbl" x="264" y="168">第1篇</text>
+  <line class="line" x1="260" y1="200" x2="520" y2="200" stroke-dasharray="5,4" opacity="0.45"/>
+  <text class="lbl" x="380" y="193" opacity="0.7">第5篇起启用</text>
+</svg>

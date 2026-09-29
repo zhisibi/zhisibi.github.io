@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .forest { fill: #e8f0fe; stroke: #1a3a6b; stroke-width: 2.5; }
+      .ou { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 2; }
+      .dc { fill: #fff8e1; stroke: #f9a825; stroke-width: 2; }
+      .t { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #1f2937; }
+      .s { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="t" x="10" y="25" style="font-size:15px">AD 逻辑结构：林 → 域 → OU（本系列实验环境）</text>
+  <g>
+    <rect class="forest" x="10" y="45" width="740" height="265" rx="12"/>
+    <text class="t" x="30" y="75" style="font-size:14px">🌲 林 Forest：lab.local</text>
+    <text class="s" x="30" y="95">第一台 DC 提升时创建的林根域</text>
+    <g>
+      <rect class="dc" x="30" y="110" width="200" height="70" rx="10"/>
+      <text class="t" x="45" y="136">🖥 域控制器 DC</text>
+      <text class="s" x="45" y="156">WS2022-DC01 (192.168.100.11)</text>
+      <text class="s" x="45" y="172">AD 数据库 + DNS(AD集成)</text>
+    </g>
+    <g>
+      <rect class="ou" x="260" y="110" width="180" height="180" rx="10"/>
+      <text class="t" x="275" y="136">📁 OU=部门</text>
+      <rect class="ou" x="275" y="148" width="150" height="56" rx="8" style="fill:#f1f8e9"/>
+      <text class="s" x="285" y="170" style="font-weight:bold">OU=财务部</text>
+      <text class="s" x="285" y="188">👤 zhangsan / G_财务部</text>
+      <rect class="ou" x="275" y="216" width="150" height="56" rx="8" style="fill:#f1f8e9"/>
+      <text class="s" x="285" y="238" style="font-weight:bold">OU=技术部</text>
+      <text class="s" x="285" y="256">👤 lisi, wangwu / G_技术部</text>
+    </g>
+    <g>
+      <rect class="ou" x="470" y="110" width="130" height="100" rx="10"/>
+      <text class="t" x="485" y="136">📁 OU=服务器</text>
+      <text class="s" x="485" y="158">🖥 WS2022-FS01</text>
+      <text class="s" x="485" y="178">(第4篇文件服务器)</text>
+    </g>
+    <g>
+      <rect class="ou" x="620" y="110" width="110" height="100" rx="10"/>
+      <text class="t" x="632" y="136" style="font-size:12px">📁 OU=办公电脑</text>
+      <text class="s" x="632" y="158">💻 Win11-01</text>
+      <text class="s" x="632" y="178">(加域客户端)</text>
+    </g>
+    <text class="s" x="30" y="215">⬆ 域用户 zhangsan@lab.local 可登录林中任何加域设备</text>
+    <text class="s" x="30" y="235">⬆ 组策略(第7篇) 挂在 OU 上：进 OU 的对象自动生效</text>
+    <text class="s" x="30" y="255">⬆ 容器 CN=Users 不能挂 GPO —— 所以才要自建 OU</text>
+    <text class="s" x="30" y="275">⬆ SRV 记录 _ldap._tcp.lab.local → 客户端靠它找到 DC</text>
+  </g>
+</svg>
