@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="350" viewBox="0 0 760 350">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .node { fill: #e8f0fe; stroke: #1a3a6b; stroke-width: 2; }
+      .dead { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .disk { fill: #fff8e1; stroke: #f9a825; stroke-width: 2; }
+      .float { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 2.5; }
+      .t { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #1f2937; }
+      .s { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+      .hline { stroke: #f9a825; stroke-width: 2; stroke-dasharray: 6,4; }
+    </style>
+  </defs>
+  <text class="t" x="10" y="25" style="font-size:15px">双节点故障转移群集：宕机演练时发生了什么</text>
+  <g>
+    <rect class="node" x="10" y="45" width="200" height="130" rx="10"/>
+    <text class="t" x="25" y="72">ClusterNode1</text>
+    <text class="s" x="25" y="92">192.168.100.21</text>
+    <text class="s" x="25" y="112">业务网+心跳网(10.10.10.x)</text>
+    <text class="s" x="25" y="132">OwnerNode: HAFileServer ✅</text>
+    <text class="s" x="25" y="152" style="fill:#c62828">⬇ 模拟宕机：直接关机</text>
+  </g>
+  <g>
+    <rect class="node" x="10" y="190" width="200" height="130" rx="10"/>
+    <text class="t" x="25" y="217">ClusterNode2</text>
+    <text class="s" x="25" y="237">192.168.100.22</text>
+    <text class="s" x="25" y="257">业务网+心跳网(10.10.10.x)</text>
+    <text class="s" x="25" y="277" style="fill:#2e7d32">⬆ 30~60秒后接管 ✅</text>
+    <text class="s" x="25" y="297">仲裁投票 2/3 通过</text>
+  </g>
+  <line class="hline" x1="110" y1="175" x2="110" y2="190"/>
+  <text class="s" x="118" y="186" style="font-size:10px">心跳断</text>
+  <g>
+    <rect class="disk" x="250" y="45" width="200" height="130" rx="10"/>
+    <text class="t" x="265" y="72">iSCSI 共享盘</text>
+    <text class="s" x="265" y="92">20GB · Cluster Disk 1</text>
+    <text class="s" x="265" y="112">两节点同时挂载</text>
+    <text class="s" x="265" y="132">仲裁见证盘（第3票）</text>
+    <text class="s" x="265" y="152">群集软件协调写入</text>
+  </g>
+  <g>
+    <rect class="float" x="250" y="190" width="200" height="130" rx="10"/>
+    <text class="t" x="265" y="217">浮动服务</text>
+    <text class="s" x="265" y="237" style="font-weight:bold">\\HAFileServer</text>
+    <text class="s" x="265" y="257">192.168.100.31（浮动IP）</text>
+    <text class="s" x="265" y="277">不属于任何节点</text>
+    <text class="s" x="265" y="297">漂移时用户只感到卡顿</text>
+  </g>
+  <line class="line" x1="210" y1="110" x2="250" y2="110"/>
+  <line class="line" x1="210" y1="255" x2="250" y2="255"/>
+  <line class="line" x1="450" y1="110" x2="490" y2="230"/>
+  <line class="line" x1="450" y1="255" x2="490" y2="240"/>
+  <g>
+    <rect class="box" x="490" y="45" width="260" height="275" rx="10" style="fill:#f5f7fa"/>
+    <text class="t" x="505" y="72">宕机演练时间线</text>
+    <text class="s" x="505" y="96">T+0sㅤ关掉 Node1</text>
+    <text class="s" x="505" y="118">T+5sㅤ心跳超时，Node2 宣布</text>
+    <text class="s" x="505" y="140">ㅤㅤㅤNode1 失联</text>
+    <text class="s" x="505" y="162">T+10sㅤ仲裁投票：Node2+见证盘</text>
+    <text class="s" x="505" y="184">ㅤㅤㅤ= 2/3票 ✅ 获胜</text>
+    <text class="s" x="505" y="206">T+30sㅤHAFileServer 在 Node2 上线</text>
+    <text class="s" x="505" y="228">T+60sㅤ客户端 SMB 重连成功</text>
+    <text class="s" x="505" y="252">之后ㅤNode1 开机自动归队</text>
+    <text class="s" x="505" y="276">RPO≈0（共享盘）</text>
+    <text class="s" x="505" y="296">RTO≈1分钟</text>
+  </g>
+</svg>

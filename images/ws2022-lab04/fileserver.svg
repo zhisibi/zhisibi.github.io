@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .shr { fill: #e8f0fe; stroke: #4a6fa5; stroke-width: 2; }
+      .t { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #1f2937; }
+      .s { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+      .tag { font-family: sans-serif; font-size: 10px; fill: #ffffff; }
+    </style>
+  </defs>
+  <text class="t" x="10" y="25" style="font-size:15px">文件服务器逻辑结构：D:\Shares（三道防线：ABE + 配额 + 卷影副本）</text>
+  <g>
+    <rect class="box" x="10" y="50" width="180" height="200" rx="10"/>
+    <text class="t" x="25" y="78">WS2022-LAB01</text>
+    <text class="s" x="25" y="98">文件服务器角色</text>
+    <text class="s" x="25" y="116">+ FSRM</text>
+    <rect x="25" y="130" width="60" height="20" rx="10" fill="#2e7d32"/><text class="tag" x="35" y="144">ABE 开</text>
+    <rect x="90" y="130" width="60" height="20" rx="10" fill="#f9a825"/><text class="tag" x="96" y="144">配额</text>
+    <rect x="25" y="156" width="80" height="20" rx="10" fill="#4a6fa5"/><text class="tag" x="31" y="170">卷影副本</text>
+    <text class="s" x="25" y="196">D:\Shares</text>
+    <text class="s" x="25" y="214">共享权限: Everyone 完全控制</text>
+    <text class="s" x="25" y="232">管控全部放在 NTFS</text>
+  </g>
+  <line class="line" x1="190" y1="150" x2="230" y2="150"/>
+  <g>
+    <rect class="shr" x="230" y="50" width="160" height="60" rx="10"/>
+    <text class="t" x="245" y="74">\\…\Finance</text>
+    <text class="s" x="245" y="94">Finance组=修改(硬20GB)</text>
+  </g>
+  <g>
+    <rect class="shr" x="230" y="125" width="160" height="60" rx="10"/>
+    <text class="t" x="245" y="149">\\…\Tech</text>
+    <text class="s" x="245" y="169">Tech组=修改(硬20GB)</text>
+  </g>
+  <g>
+    <rect class="shr" x="230" y="200" width="160" height="60" rx="10"/>
+    <text class="t" x="245" y="224">\\…\Home</text>
+    <text class="s" x="245" y="244">每人5GB硬配额</text>
+  </g>
+  <line class="line" x1="390" y1="80" x2="430" y2="80"/>
+  <line class="line" x1="390" y1="155" x2="430" y2="155"/>
+  <line class="line" x1="390" y1="230" x2="430" y2="230"/>
+  <g>
+    <rect class="box" x="430" y="50" width="150" height="210" rx="10" style="fill:#fff8e1"/>
+    <text class="t" x="445" y="78">李四看到的视图</text>
+    <text class="s" x="445" y="100">\\192.168.100.10\</text>
+    <text class="s" x="445" y="124">✅ Tech</text>
+    <text class="s" x="445" y="144">✅ Home\lisi</text>
+    <text class="s" x="445" y="168" style="fill:#9e9e9e">🚫 Finance（不可见）</text>
+    <text class="s" x="445" y="188" style="fill:#9e9e9e">🚫 Home\zhangsan（不可见）</text>
+    <text class="s" x="445" y="212">← ABE 过滤</text>
+    <text class="s" x="445" y="232">看不见 = 没权限</text>
+  </g>
+  <g>
+    <rect class="box" x="600" y="50" width="150" height="210" rx="10" style="fill:#e6f4ea"/>
+    <text class="t" x="615" y="78">防护三件套</text>
+    <text class="s" x="615" y="104">🛡 配额：防爆盘</text>
+    <text class="s" x="615" y="128">🚫 屏蔽：挡 mp3/exe</text>
+    <text class="s" x="615" y="152">⏪ 卷影副本：防手滑</text>
+    <text class="s" x="615" y="180">RPO = 快照间隔</text>
+    <text class="s" x="615" y="204">⚠ 不是备份！</text>
+  </g>
+</svg>

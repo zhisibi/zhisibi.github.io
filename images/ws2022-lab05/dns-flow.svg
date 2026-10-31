@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340">
+  <defs>
+    <style>
+      .box { fill: #f5f7fa; stroke: #4a6fa5; stroke-width: 2; }
+      .dec { fill: #fff8e1; stroke: #f9a825; stroke-width: 2; }
+      .ok { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 2; }
+      .ext { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .t { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #1f2937; }
+      .s { font-family: sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #4a6fa5; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="t" x="10" y="25" style="font-size:15px">DNS 查询流程：客户端问 dc01.lab.local 时发生了什么</text>
+  <g><rect class="box" x="10" y="50" width="170" height="60" rx="10"/>
+    <text class="t" x="25" y="76">客户端</text>
+    <text class="s" x="25" y="96">问：dc01.lab.local？</text></g>
+  <line class="line" x1="180" y1="80" x2="220" y2="80"/>
+  <g><rect class="box" x="220" y="50" width="200" height="60" rx="10" style="fill:#e8f0fe"/>
+    <text class="t" x="235" y="76">自建 DNS</text>
+    <text class="s" x="235" y="96">192.168.100.10</text></g>
+  <g><rect class="dec" x="220" y="140" width="200" height="56" rx="10"/>
+    <text class="t" x="235" y="162">是 lab.local 的记录？</text></g>
+  <line class="line" x1="320" y1="110" x2="320" y2="140"/>
+  <line class="line" x1="420" y1="168" x2="480" y2="168"/>
+  <g><rect class="ok" x="480" y="140" width="170" height="56" rx="10"/>
+    <text class="t" x="495" y="164" style="fill:#2e7d32">直接回答</text>
+    <text class="s" x="495" y="184">A记录 → 192.168.100.11</text></g>
+  <text class="s" x="430" y="160" style="font-weight:bold;fill:#2e7d32">是</text>
+  <line class="line" x1="320" y1="196" x2="320" y2="225"/>
+  <text class="s" x="328" y="218" style="font-weight:bold;fill:#c62828">否</text>
+  <g><rect class="dec" x="220" y="225" width="200" height="56" rx="10"/>
+    <text class="t" x="235" y="247">有转发器 / 条件转发？</text></g>
+  <line class="line" x1="420" y1="253" x2="480" y2="253"/>
+  <g><rect class="ext" x="480" y="225" width="170" height="56" rx="10"/>
+    <text class="t" x="495" y="249" style="fill:#7b1fa2">转发出去问</text>
+    <text class="s" x="495" y="267">223.5.5.5 / 条件目标</text></g>
+  <text class="s" x="430" y="245" style="font-weight:bold;fill:#2e7d32">有</text>
+  <line class="line" x1="320" y1="281" x2="320" y2="305"/>
+  <text class="s" x="328" y="298" style="font-weight:bold;fill:#c62828">无</text>
+  <g><rect class="box" x="220" y="305" width="200" height="30" rx="8" style="fill:#ffebee"/>
+    <text class="s" x="235" y="325" style="fill:#c62828">走根提示迭代查询（慢）或 NXDOMAIN</text></g>
+  <text class="s" x="10" y="300" style="font-size:12px">记忆口诀：先看自己认不认识 → 不认识就转发 → 没配转发才自己爬根</text>
+</svg>
